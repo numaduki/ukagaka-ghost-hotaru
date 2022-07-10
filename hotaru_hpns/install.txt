@@ -1,0 +1,5 @@
+charset,Shift_JIS
+type,ghost
+name,‰Sè‚¢t‚Ù‚½‚é
+directory,hotaru_hpns
+balloon.directory,sunao
