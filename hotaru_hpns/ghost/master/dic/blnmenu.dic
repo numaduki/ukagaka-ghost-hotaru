@@ -1,0 +1,237 @@
+/*
+	バルーンメニュー
+*/
+
+
+#define	[C1]	%(CHR(1))
+#define	[C2]	%(CHR(2))
+
+
+ShowBalloonMenu
+{
+	_m = SSTPMarker+' '
+
+	'\0\s[0]\i[31]はい？'
+	'\0\s[5]はいっ。'
+	'\0\s[1]何でしょう？'
+	'\0\s[6]……\w6\i[31]はい。'
+	'\0\s[8]……\w6はい……。'
+	'\0\s[6]\i[34]\i[71]何もできませんが……。'
+	'\1\s[13]メニューのシンプルさが売りです。\w6\0\s[8]……。'
+	--
+	"\n\n[half]/
+	%(_m)\q[喋る,OnTalk]\_q / \_q\q[再現,OnTalkAgain]\n/
+	%(_m)\q[話しかける,BM_StartCommunicate]\n/
+	%(_m)\q[身の上話,BM_MinoueTalk]\n/
+	%(_m)\q[運勢を占う,BM_FortuneTelling]\n/
+	\n[half]/
+	%(_m)\q[しゃべり間隔,BM_SetTalkInterval]\n/
+	%(_m)\q[その他の設定,BM_Config]\n/
+	\n[half]/
+	%(_m)\q[キャンセル,BM_Cancel]/
+	\e"
+}
+
+
+SSTPMarker
+{
+	_i = BasewareData[0]
+	if _i == 'embryo' || _i == 'SSP'{'\![*] '}
+	else{'- '}
+}
+
+
+BM_SetTalkInterval
+{
+	// DataArray[3]に秒数を代入。-1を代入するとランダム
+	_m = SSTPMarker
+	_i = ANY('どうしましょうか？','どうしますか？')
+	"/
+	\1\s[11]\0\s[0]\i[31]%(_i)\n\n/
+
+	%(_m)\q[30秒,BM_SetTalkInterval_30]\n/
+	%(_m)\q[60秒,BM_SetTalkInterval_60]\n/
+	%(_m)\q[120秒,BM_SetTalkInterval_120]\n/
+	%(_m)\q[240秒,BM_SetTalkInterval_240]\n/
+	%(_m)\q[好きなように,BM_SetTalkInterval_Random]\n/
+	%(_m)\q[しゃべらない,BM_SetTalkInterval_NoTalk]\n/
+	\n[half]/
+	%(_m)\q[キャンセル,BM_Cancel]\e/
+	"
+}
+
+BM_SetTalkInterval_30
+{
+	DataArray[3] = 30
+	TalkInterval = 30
+	"\1\s[14]30秒に1回。\w9\0\s[8]……\w6おんなじこと喋ったらすみません……。\e"
+}
+
+BM_SetTalkInterval_60
+{
+	DataArray[3] = 60
+	TalkInterval = 60
+	"\0\s[0]\i[31]\1\s[13]60秒に1回。\w6\0\i[10]……\w6ふつうに。\e"
+}
+
+BM_SetTalkInterval_120
+{
+	DataArray[3] = 120
+	TalkInterval = 120
+	"\0\s[0]\i[31]\1\s[12]120秒に1回。\w6\0\i[10]……\w6ほどほどに。\e"
+}
+
+BM_SetTalkInterval_240
+{
+	DataArray[3] = 240
+	TalkInterval = 240
+	"\0\s[0]\i[31]\1\s[11]4分に1回。\w6\0\i[10]……\w6時々、\w6しゃべりますね。\e"
+}
+
+BM_SetTalkInterval_Random
+{
+	DataArray[3] = 0
+	TalkInterval = 30 + RAND(211)
+	"\0\s[0]\i[31]\1\s[11]じゃあ好きなように喋るか。\w6\0……。\e"
+}
+
+BM_SetTalkInterval_NoTalk
+{
+	DataArray[3] = -1
+	"\0\s[0]\i[31]\1\s[11]むう。\w4\0\i[10]\w2\s[6]……\w6静かにしときますね。\e"
+}
+
+
+
+BM_Config
+{
+	// 機能のON/OFFはデータを処理したりする必要がある
+
+	_m = SSTPMarker
+
+	"\1\s[11]\b[-1]\0\s[0]\i[31]\b[2]"+/
+	"%(_m)\_q見切れたら最小化(\_q\q[ON,BM_MinimizeWhenOutScreen_ON],\q[OFF,BM_MinimizeWhenOutScreen_OFF])\n"+/
+	"%(_m)\_q名前を教えなおす(\_q\q[ほたる,BM_RenameUserHotaru],\q[マスカレード,BM_RenameUserMasquerade])\n"+/
+	"%(_m)\q[誕生日を教える,ShowTenKey]\n"+/
+	"%(_m)\_qブレストガード(\_q\q[ON,BM_BreastGuard_ON],\q[OFF,BM_BreastGuard_OFF])\n"+/
+	"\n"+/
+
+	"%(_m)\q[設定おわり,BM_Cancel]\e"
+
+}
+
+
+BM_RenameUserHotaru
+{
+	if basewarename == "SSP"
+	{
+		"\0\s[5]はい、\w6よびかたの変更ですねっ。\![open,inputbox,askusername_again,-1]\w9\s[1]\n\nわかりますよー、\w6私もよく\w2『ほたる』\w2っていう名前、\w6変えたくなるので……。\w6\1\s[10]おいおい。\w9\0\s[4]\nだって、\w2『ほたる』\w2もありきたりっていうか……。\w6\1\s[11]\n\n……。\w6\w6\0\i[10]\w2\s[8]\n\nと、\w6とにかく新しい%(username)さんの呼び方、\w6\nどうぞっ。\e"
+	}
+	else
+	{
+		"\0\s[5]はい、\w6よびかたの変更ですねっ。\w9\s[1]\n\nわかりますよー、\w6私もよく\w2『ほたる』\w2っていう名前、\w6変えたくなるので……。\w6\1\s[10]おいおい。\w9\0\s[4]\nだって、\w2『ほたる』\w2もありきたりっていうか……。\w6\1\s[11]\n\n……。\w6\w6\0\i[10]\w2\s[8]\n\nと、\w6とにかく新しい%(username)さんの呼び方、\w6\nどうぞっ。\![open,inputbox,askusername_again,-1]\e"
+	}
+}
+
+BM_RenameUserMasquerade
+{
+	"\1\s[11]むう。\![open,inputbox,askusername2_again,-1]\e"
+}
+
+
+BM_MinimizeWhenOutScreen_ON
+{
+	DataArray[8]=1
+	'\0\s[5]はい。\w6見切れたら隠れますね。\w6\1\s[11]トークの最中の場合はトークが終わってからになる。\w6\s[12]\nCtrlキーでも押してもらえれば。\e'
+}
+BM_MinimizeWhenOutScreen_OFF
+{
+	DataArray[8]=0
+	'\0\s[0]\i[31]では、\w6見切れてもそのままでいますね。\w9\1\s[11]うむ。\e'
+}
+
+
+BM_BreastGuard_ON
+{
+	BreastGuard = 1
+	'\0\s[5]\i[34]はい。\w6有効にしましたっ。\w9\1\s[11]……\w6\w6むう。\e'
+}
+BM_BreastGuard_OFF
+{
+	BreastGuard = 0
+	'\0\s[6]\i[71]……。\w9\1\s[11]むむ。\w6\i[0]ご苦労様です。\w6\w6\0\s[9]\i[30]\i[71]\n\n……。\e'
+}
+
+
+
+
+
+BM_StartCommunicate
+{
+	"\0\s[5]どうもっ。\w6\1\s[10]む。\w6\s[12]\n\n何かいい話はないかね？"
+	"\1\s[14]放送禁止用語はお控え下さい。\w6\0\s[8]……。"
+	--
+	"\![open,inputbox,talkwithuser,-1,]\e"
+}
+
+
+
+BM_MinoueTalk : sequential
+{
+	"\0\s[6]えと、\w6ほたるです。\w6\s[1]\n占い師、\w6やってます。\w6\1\s[11]当たりますか。\w6\0\s[2]\n\nえ････。\w6\s[8]\nぼ、\w6ぼちぼち当てますっ。\w6\1\s[14]\n\n････。\e"
+	"\0\s[1]1回100円で、\w6何でも占わせていただけますっ。\w6\1\s[11]税込みです。\w6\0\i[10]\w1\s[8]\n\n････\w6ぜ、\w6税込み？\e"
+	"\1\s[14]ホームレスです。\w6\0\s[2]ホ、\w6ホームレスというか････\w6\i[10]\w1\s[4]宿無しです。\w6\1\s[11]\n\n一緒だよ。\w9\0\s[1]\n\nでも、\w6今はさしあたって%(username)さんのところで休ませてもらえてるので、\w6本当に助かってます。\w6\1\s[14]\n\nむ。\w6\nほたるともども感謝しております。\w6\0\i[10]\w1\s[0]\i[31]\n\nこれからもよろしくお願いします････。\w9\s[8]\nなるだけ迷惑にならないようにしますから。\e"
+	"\1\s[14]主食はタマゴサンドです。\w6\0\s[6]\i[71]\i[31]\i[60]････\w6コ、\w6コンビニで売れ残ったのを安く譲ってもらってるんですっ。\w6\i[10]\n1パック100円で････。\w6\1\s[10]\n\nしかしなんていうか、\w6\nもう飽きるとかそういうの通り越してるっていうか････。\w6\s[11]\n米みたいな感覚だよな。\w6\0\s[4]\i[11]\n\nあ、\w6あらためて言うと\n寂しくなるから言わないのっ。\e"
+	"\1\s[14]1日2食がほとんどです。\w6\0\s[3]せ、\w6節約というか、\w6\n節タマゴサンドというか、\w6\n\i[10]\w1\s[4]ちょっとずつ食べたりします。\w9\1\s[13]\n\n夏場は傷むのが早い。\w6\s[10]\nつなぐのも技が必要なんだな。\w6\0\s[1]\n\nそうだね････。\e"
+	"\0\s[5]ここにいない時は、\w6路上で営業してますっ。\w9\i[10]\w1\s[0]\n\n････\w6昼は気が向いた時間に営業して。\w9\i[10]\w1\s[1]夜の営業はだいたい9時から12時くらいでしょうか。\w6\w6\n月がきれいな夜はもうちょっと長くやったりもします････。\w9\1\s[12]お肌が荒れちゃう。\w9\0\i[10]\w1\s[3]\n\n････\w6タ、\w6\i[10]\w1\s[4]タマゴサンドの卵は\nお肌にいいんだよっ？\w6\1\n\n････\w6\s[11]いや、\w6そう言われても。\e"
+	"\1\s[11]水晶球の罅が気になるところだなあ。\w6\0\s[0]\i[71]うーん････。\w9\i[10]\w1\s[5]\nでも、\w6普通に占えますよ？\w9\i[10]\w1\s[8]\n\n長い間つきあってれば、\w6この罅にも\nなんだか愛着が沸くんですよー。\w9\1\s[14]\n\nへぇ。\w6\0\s[3]\n\nな、\w6何よう。\e"
+	"\1\s[10]ケープ取らないんですか。\w6\0\s[1]取りませんっ。\w6\1\s[11]\n\n････。\w6\w6\s[10]\n取らな\w3\0\s[1]\n\n取りませんっ。\w6\1\s[13]\n\n････。\e"
+	"\1\s[11]････\w6夏場は、\w6ケープは暑くないですか。\w6\0\s[0]\i[31]暑くないですっ。\w6\i[10]\w1\s[1]\nだから取りませんっ。\w6\1\s[14]\n\nいやそこまで訊いてないし。\e"
+	"\1\s[10]%(username2)。\w6\nもしかして、\w6俺が喋ってるように聴こえてるか？\w6\w6\s[11]\n\nだとしたら病院へ急げ。\w9\0\s[8]わ、\w6私もマスカレードが喋ってるの\n聞こえてますから\i[10]大丈夫ですっ。\w6\1\s[14]\n\nじゃあほたるも病院へ急げ。\w6\0\s[7]\n\nな、\w6なんでそうなるのっ。\e"
+	"\1\s[11]ていうか、\w6\s[13]\n俺の瞳はなんでまた色が変わりますか。\w6\0\s[3]わ、\w6････\w6\i[10]\w1\s[4]私に訊かれても････。\e"
+}
+
+
+BM_FortuneTelling
+{
+	FortuneTelling
+}
+
+
+// ## キャンセル
+
+BM_Cancel
+{
+	'\0\s[0]\i[31]はい。\e'
+	'\0\s[6]\i[31]またいつでもどうぞ。\e'
+	'\0\s[5]……\w6もういいんですか？\e'
+}
+
+
+ShowKeroBalloonMenu {
+	_m = SSTPMarker+' '
+
+	"\1\s[11]ほう？\w6\n\n[half]"
+	--
+	"%(_m)\q[ダイス,KBM_Dice]\n/
+	%(_m)\q[キーコード確認,KBM_Keycode]\n/
+	\n[half]/
+	%(_m)\q[キャンセル,KBM_Cancel]/
+	\e"
+
+}
+KBM_Dice {
+	"\1\![open,inputbox,dice,-1,6d2]\e"
+}
+KBM_Keycode {
+	"\1\s[12]なんと。\w6キーコードを調べたいのか。\w6\w6\s[11]\n\nさては%(username2)……\w6\w6\s[13]初心者だな？\w9\0\s[4]……\w6べ、\w6別にいいじゃない。\w6\w6\1\c\s[10]キーボードの「K」を押して開始。\w9\s[10]\n同じく「K」を押して終了だ。\w6\w6\s[11]\n\nちなみに、\w6何押しても「229」と表示される場合は日本語入力がONになっている。\w9\n日本語入力モードをOFFにして使うべし。\w6\w6\0\s[3]\n\nそれって。\w9\s[8]\nバイリンガルってこと？\w6\w6\1\s[11]\n\nどうだろうな。\e"
+}
+KBM_Cancel {
+	"\1\s[11]ふふ。\e"
+}
+
+
+
+
+
+

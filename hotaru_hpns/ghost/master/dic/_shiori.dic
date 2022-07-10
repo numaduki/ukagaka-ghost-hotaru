@@ -1,0 +1,806 @@
+/*
+	SHIORI用動作
+*/
+
+
+/*
+
+DataArray
+	0 phase5変数のインポートフラグ
+	1 カスタムメニューの初期化フラグ
+	2 RSSリーダーのタイプフラグ
+		0- 取得した文字列をローカルに保存してから処理。比較的速い。EUC不可
+		1- 取得した文字列を直接処理。速くない。EUC可
+	3 トークのインターバル。単位は秒
+	4 ユーザーの名前・\h側
+	5 ユーザーの名前・\u側
+	6 にょ
+	7 カスタムメニューについての説明済フラグ
+	8 コンフィグ - 見切れたら最小化(する-1/しない-0)
+	9 たんじょうび年
+	10 たんじょうび月
+	11 たんじょうび日
+	12 開発者用DnD機能フラグ(0-ユーザー/1-開発者)
+
+InstalledGhostData
+	0+_i*7 -ゴースト名
+	1+_i*7 -\hの名前
+	2+_i*7 -\uの名前
+	3+_i*7 -ゴーストのid
+	4+_i*7 -ゴースト作者名
+	5+_i*7 -作者のウェブサイトURL
+	6+_i*7 -インストールフォルダ名
+	_i++
+
+MaterializedGhostList
+	0～n-ゴースト名
+
+BasewareData
+	0-ベースウェア名(embryo crow SSPなど)
+	1-バージョン番号
+
+UtilityEnabled
+	利用する-1,利用しない-0
+	0-Launcher
+	1-HDDPlr
+	2-RSS
+	3-BIFF
+	4-Ghost
+	5-Other
+
+BreastGuard
+	0-OFF
+	1-ON
+
+*/
+
+
+#define	CRLF	CHR(13)+CHR(10)
+#define	[C1]	%(CHR(1))
+#define	[C2]	%(CHR(2))
+
+
+load
+{
+	// reference
+	R = IARRAY
+	// 返送するreference。いわゆるres_reference
+	rR = IARRAY
+	// リクエストされる毎にキーを詰める。
+	IV_Key = IARRAY
+	// リクエストされる毎に値を詰める。キーの配列のindexと対応
+	IV_Value = IARRAY
+	// LoadされたSAORIを認知しておく
+	IV_LoadLib = IARRAY
+
+	OnGhostLoad
+}
+
+unload
+{
+	OnGhostUnload
+
+	foreach IV_LoadLib;_each
+	{
+		UNLOADLIB(_each)
+	}
+	ERASEVAR('IV_LoadLib')
+
+	ERASEVAR('IV_Key')
+	ERASEVAR('IV_Value')
+	ERASEVAR('R')
+	ERASEVAR('rR')
+	ERASEVAR('saori_value')
+}
+request
+{
+
+	// ①リクエストヘッダのKeyとValueを取得
+	IV_Key = IARRAY
+	IV_Value = IARRAY
+	_str = SPLIT(_argv[0],CRLF,0)
+
+	_reqtype = _str[0]
+	// 不適当なバージョンならBad Request
+
+	if 'NOTIFY SHIORI/3.0' !_in_ _reqtype && 'GET SHIORI/3.0' !_in_ _reqtype
+	{
+		'SHIORI/3.0 400 Bad Request'+CRLF+CRLF;return
+	}
+
+	// IV_Keyの0番目にはリクエスト種別が不完全なかたちで入る。影響はないので放置
+	// 気になるなら消してもいいけど
+	foreach _str;_each
+	{
+		if _each==''{continue}
+		IV_Key,=_each[0,': ']
+		IV_Value,=ERASE(_each,0,STRSTR(_each,':',0)+2)
+	}
+
+	// ② 関数名を取得
+	//_i = ASEARCH('ID',IV_Key)
+	_fcname = IV_Value[ASEARCH('ID',IV_Key)]
+	// ID（例えばイベントハンドラ）が辞書に記述されていなければ204
+/*	if ! ISFUNC(_fcname)
+	{'SHIORI/3.0 204 No Content'+CRLF+'Charset: Shift_JIS'+CRLF+CRLF;return}
+*/
+	// セキュリティレベルがExternalの場合はすぐに返す
+/*	if 'xternal' _in_ IV_Value[ASEARCH('SecurityLevel',IV_Key)]
+	{'SHIORI/3.0 204 No Content'+CRLF+'Charset: Shift_JIS'+CRLF+CRLF;return}
+*/
+	// 汎用配列Rを生成
+	R = IARRAY
+	_i = 0
+	foreach IV_Key;_each
+	{
+		if STRSTR(_each,'Reference',0)==0
+		{
+			_v = IV_Value[_i]
+			//数字を取り出す
+			_each = ERASE(_each,0,9)
+			// 数値として解釈できる場合数値に直す
+			if ISINTSTR(_v){CVINT(_v)}
+			elseif ISREALSTR(_v){CVREAL(_v)}
+			LETTONAME('R['+_each+']',_v)
+			//R[TOINT(_each)]=_v
+		}
+		_i++
+	}
+
+
+
+		// 特定のイベントが喚ばれた時のみ
+		// 事前に特定の処理を行う
+		if _fcname == 'OnUpdateComplete'
+		{
+			// DL2ファイルをDLLファイルにリネーム
+			_i = FENUM2(GETSETTING(2))
+			foreach _i;_each
+			{
+				_spath = SPLITPATH(_each)
+				if TOLOWER(_spath[3])=='.dl2'
+				{
+					_ig = FDEL(_spath[0]+_spath[1]+_spath[2]+'.dll')
+					_ig = FRENAME(_each,_spath[0]+_spath[1]+_spath[2]+'.dll')
+				}
+			}
+		}
+		elseif _fcname == 'OnUpdateReady'
+		{
+			// すべてのSAORIをUnload
+			foreach IV_LoadLib;_each{UNLOADLIB(_each)}
+		}
+
+	// 関数を実行
+	_result=TOSTR(EVAL(_fcname))
+	//if GETTYPE(_result)==4{_result=TOSTR(_result)}
+
+
+
+
+	// リクエスト種別とプロトコルについて検査
+	// 'GET SHIORI/3.0'・'NOTIFY SHIORI/3.0'・それ以外（サポート外）
+	// 返り値がある場合は200、ない場合は204、サポート外だった場合400を返す
+
+	if (_reqtype=_str[0]) == 'NOTIFY SHIORI/3.0'
+	{
+		'SHIORI/3.0 200 OK'+CRLF+'Charset: Shift_JIS'+CRLF+CRLF
+	}
+	elseif _reqtype == 'GET SHIORI/3.0'
+	{
+		if _result==''
+		{
+			'SHIORI/3.0 204 No Content'+CRLF+'Charset: Shift_JIS'+CRLF+CRLF
+		}
+		else
+		{
+
+			_r_ref = ''
+			if rR
+			{
+				_i = 0
+				foreach rR;_s
+				{
+					// ループでヘッダを生成
+					_r_ref += ('Reference' + _i + ': ' + _s + CRLF)
+					_i++
+				}
+				rR = IARRAY
+			}
+			'SHIORI/3.0 200 OK'+CRLF+/
+			'Sender: AYA'+CRLF+/
+			'Charset: Shift_JIS'+CRLF+/
+			'Value: '+_result+CRLF+/
+			_r_ref + CRLF
+		}
+	}
+	else // サポート外のリクエスト種別
+	{
+		'SHIORI/3.0 400 Bad Request'+CRLF+CRLF
+		//return
+	}
+
+	// 実行結果の返り値の文字列の中にチェイントークIDがあれば処理
+	if '\e:' _in_ _result
+	{
+		ChainID = ERASE(_result,0,STRSTR(_result,'\e:',0)+3)
+	}
+}
+
+
+
+
+
+
+// SHIORI動作に必要なコード　ここまで
+
+
+
+
+/*
+	ステータスコード
+	200 OK - 処理成功、戻り値あり
+	204 No Content - 処理成功、戻り値なし
+	400 Bad Request - 情報不足
+	500 Internal Server Error - インターナルサーバーエラー
+*/
+
+
+// # -----------------------------------------------------------------
+// # 独自汎用関数
+
+
+/*
+SAORI
+	SAORIを引数付きで実行する。ロードされていない場合はロードしてから実行する
+	SAORI("hoge.dll","arg1","arg2")
+RANDODD
+	指定された範囲の奇数をランダムに返す。0しか返されない引数の場合は0が返る
+	RANDODD(9)// 1,3,5,7のどれか
+	RANDODD(1) // 0
+RANDEVEN
+	指定された範囲の偶数をランダムに返す
+	RANDEVEN(7) // 0,2,4,6のどれか
+ABS
+	絶対値を返す
+	ABS(-9) // 9
+	ABS(12) // 12
+RANGE
+	2つの値の絶対的な差を求める。biggernumber-smallernumberの値。
+	RANGE(-4,7) // 11
+ISNUM
+	数値（整数か実数）ならば真を返す。汎用配列を渡した場合は要素が全て数値なら真
+	ISNUM(3.14) // 1
+	ISNUM(1,2,3,4,5,"6") // 0
+FENUM2
+	フォルダのサブフォルダまで検索し汎用配列で列挙
+	相対パスを渡せば相対パスで、絶対パスなら絶対パスで返る
+	FENUM2("hoge") // AYAのディレクトリ\hogeの中のファイルを全て列挙
+REPLACE2
+	対象語をいくつかの候補からランダムに置換する
+	REPLACE2("******","*","１","２","３","４") // ４１３４２３
+REPLACE3
+	対象語を複数の候補で順番に置換する
+	REPLACE2("******","*","１","２","３","４") // １２３４１２
+RELPATHTOABSPATH
+	相対パスを絶対パスに変換
+	RELPATHTOABSPATH("..\..\file.txt",""C:hoge1\hoge2\hoge3") // C:hoge1\file.txt
+PCT
+	百分率。引数の確率で真を返す
+	PCT(25) //25%の確率で1
+	PCT(100) //必ず1
+BETWEEN
+	a0が与えられた範囲a1～a2にある値ならば真を返す
+	BETWEEN(12,7,15) // 1
+	BETWEEN(12,6,11) // 0
+TIMESLOT
+	a0時が与えられた範囲a1時～a2時の間ならば真を返す。BETWEENと違い時計の概念で処理する。しかし時間を調べるのならBETWEENを複数書けばいいだけなので役に立たない
+	TIMESLOT(3,21,6) // 3時は21時と6時の間なので1
+	TIMESLOT(3,19,1) // 3時は19時から1時の間ではないので0
+BIGGEST
+	汎用配列の数値の中で一番大きい数値とその位置を汎用配列で返す。数値が含まれない配列の場合0を返す
+	BIGGEST(432,141,"A",462,311,"B",208) // (3,462)
+	BIGGEST("A","B","C") // 0
+SMALLEST
+	BIGGESTの逆
+	SMALLEST(432,141,"A",462,311,"B",208) // (1,141)
+	SMALLEST("A","B","C") // 0
+SSTPHEADER
+	直前のヘッダからキー「a0」の内容を取得する
+	SSTPHEADER("Sender")//embryo,crow,SSPなど
+ISLEAPYEAR
+	うるう年なら1、それ以外は0を返す
+	ISLEAPYEAR(2004)//1
+*/
+
+
+
+
+// ## 外部DLLをロードしてリクエストを送信する
+// ## a0:DLLのパス（相対パスOK）・a1：送信する文字列
+// 使用されているグローバル変数IV_LoadLibは_shiori.dic内関数で使用される
+SAORI
+{
+	// 一番最初にLoadした場合はGet Versionを送る
+	_loadrslt = LOADLIB(_argv[0])
+	if ! _loadrslt
+	{// ロード失敗
+		0
+		return
+	}
+	elseif _loadrslt == 1
+	{
+		// 初回のロード成功。GetVersionを送る。
+		// 200か204以外の場合はUnloadする
+		_saorires = REQUESTLIB(_argv[0],"GET Version SAORI/1.0%(CRLF)Sender: AYA%(CRLF)Charset: Shift_JIS%(CRLF)%(CRLF)")[0,CRLF]
+//		if _saorires == "SAORI/1.0 200 OK" || _saorires == "SAORI/1.0 204 No Content"
+		if STRSTR(_saorires,"OK",0)>=0 || STRSTR(_saorires,"No Content",0)>=0
+		{
+			// GET Version成功。続いてリクエスト文字列送信
+			IV_LoadLib ,= _argv[0]
+		}
+		else
+		{
+			// GET Version失敗。DLLをアンロードして0を返し、関数終了
+			UNLOADLIB(_argv[0])
+			0
+			return
+		}
+	}
+
+	// リクエスト文字列を作成
+	_request = "EXECUTE SAORI/1.0%(CRLF)Sender: AYA%(CRLF)SecurityLevel: Local%(CRLF)Charset: Shift_JIS%(CRLF)"
+	for _i=0;_i<_argc-1;_i++
+	{
+		_request += "Argument%(_i): %(_argv[_i+1])%(CRLF)"
+	}
+	_request += CRLF
+
+	// 実行
+	_result = REQUESTLIB(_argv[0],_request)
+
+	// この関数の戻り値はResultの値
+	// Value[n]はグローバル変数saori_valueに
+	SAORI.SetSaoriValue(_result)
+}
+SAORI.SetSaoriValue
+{
+	_saori_r = ''
+	saori_value = IARRAY
+	_str = SPLIT(_argv[0],CRLF,0)
+
+	// Result
+	foreach _str;_eachstr
+	{
+		if STRSTR(_eachstr,'Result',0) == 0
+		{
+			_saori_r = ERASE(_eachstr,0,8)
+		}
+	}
+
+	// Value
+	foreach _str;_eachstr
+	{
+		if STRSTR(_eachstr,'Value',0) != 0
+		{
+			continue
+		}
+
+		_j = ERASE(_eachstr[0,': '],0,5) // 『Value』を消す。数字のみ残る
+
+		// Value値がひとつだけの場合は0はしばしば省略される（気がする）
+		// その場合_jは空文字列になる
+		if _j == ''
+		{
+			saori_value[0] = ERASE(_eachstr,0,STRLEN('Value: '))
+		}
+		else
+		{
+			CVINT(_j)
+			saori_value[_j] = ERASE(_eachstr,0,STRLEN("Value%(_j): "))
+		}
+	}
+	_saori_r
+}
+
+
+
+
+
+
+RANDODD
+{
+	_range = _argv[0] // 引数異常はRAND側で処理される
+
+	// RANDの値が0のみとなる場合は0を返してreturn
+	if ISNUM(_range)!=1{0;return}
+	if ABS(_range) <= 1{0;return} 
+
+	while 1
+	{
+		_i = TOSTR(RAND(_range))
+		_p = SUBSTR(_i,STRLEN(_i)-1,1)
+		foreach ('1','3','5','7','9');_each
+		{
+			if _p == _each
+			{
+				TOINT(_i)
+				return
+			}
+		}
+	}
+}
+RANDEVEN
+{
+	_range = _argv[0]
+	while 1
+	{
+		_i = TOSTR(RAND(_range))
+		_p = SUBSTR(_i,STRLEN(_i)-1,1)
+		foreach ('0','2','4','6','8');_each
+		{
+			if _p == _each
+			{
+				TOINT(_i)
+				return
+			}
+		}
+	}
+}
+
+// 引数の絶対値
+// つまりマイナスならプラスにして返すそれだけ
+ABS
+{
+	if ISNUM(_argv[0])!=1{0;return}
+	if _argv[0]<0{_argv[0]*=-1}
+	_argv[0]
+}
+
+// 2つの引数の最大値と最小値の差
+RANGE
+{
+	if GETTYPE(_argv[0])!=1&&GETTYPE(_argv[0])!=2{0;return}
+	if GETTYPE(_argv[1])!=1&&GETTYPE(_argv[1])!=2{0;return}
+	_i=_argv[0]-_argv[1]
+	if _i<0{_i*=-1}
+	_i
+}
+
+// 数値かどうか調べる
+// 渡された引数が全て整数か実数なら1を返す
+ISNUM
+{
+	foreach _argv;_each
+	{
+		if GETTYPE(_each)!=1 && GETTYPE(_each)!=2
+		{0;return}
+	}
+	1
+}
+
+
+// ランダムな置換処理を行う
+// 文中(_argv[0])に存在する置換語(_argv[1])について
+// 置換後の語(_argv[2]～_argv[n])にランダムに置換
+//a0 置換処理を行う文・a1 置換文字列・a2～ 置換後文字列
+
+
+/*
+// 改良前。処理速度2倍になった。やったね。
+REPLACE2
+{
+	_array = (IARRAY,_argv[1,ARRAYSIZE(_argv)-1])
+
+	_j = 0
+	_Tmp = _argv[0]
+	_Tmp2 = ""
+
+	while _j >= 0
+	{
+		_j = STRSTR(_Tmp,_array[0],0) // 場所
+		if _j >= 0
+		{
+			_k = SUBSTR(_Tmp,0,_j)
+			_Tmp = ERASE(_Tmp,0,_j+STRLEN(_array[0]))
+			_Tmp2 += _k + _array[RAND(ARRAYSIZE(_array)-1)+1]
+		}
+	}
+	_Tmp2 += _Tmp
+	_Tmp2
+}
+*/
+
+
+REPLACE2
+{
+	if STRSTR(_argv[0],_argv[1],0)<0{_argv[0];return}
+	_rwbefore = _argv[1]
+	_rwafter = _argv;_rwafter[0,1]=IARRAY
+	_array = SPLIT(_argv[0],_rwbefore,0)
+
+	_str = ""
+	_size = ARRAYSIZE(_array)
+
+	for _i=0;_i<_size-1;_i++
+	{
+		_str+=_array[_i]+ANY(_rwafter)
+	}
+	_str + _array[_size-1]
+}
+
+
+//ランダムではなく与えた順番に置換
+//足りない場合は最初に戻る
+//REPLACE3("aaaaaa","aa","bb","cc")//bbccbb
+REPLACE3
+{
+	if STRSTR(_argv[0],_argv[1],0)<0{_argv[0];return}
+	_rwbefore = _argv[1]
+	_rwafter = _argv;_rwafter[0,1]=IARRAY
+	_array = SPLIT(_argv[0],_rwbefore,0)
+
+	_str = ""
+	_size = ARRAYSIZE(_array)
+
+	_kouho = 0
+	for _i=0;_i<_size-1;_i++
+	{
+		_str+=_array[_i]+_rwafter[_kouho]
+		if ARRAYSIZE(_rwafter) <= _kouho + 1 {
+			_kouho = 0
+		} else {
+			_kouho += 1
+		}
+	}
+	_str + _array[_size-1]
+}
+
+
+// 指定フォルダ以下に存在するファイルのパスを全て列挙して汎用配列で返す
+// 列挙されるのは引数として渡したパスのけいしきにならう
+FENUM2
+{
+	_result = IARRAY
+	_list = FENUM(_argv[0],'*')
+	_list = SPLIT(_list,'*',0)
+	foreach _list;_each
+	{
+		if SUBSTR(_each,0,1)=="\"
+		{
+			_each = ERASE(_each,0,1)
+			_result ,= FENUM2(_argv[0]+'\'+_each,'*')
+		}
+		else
+		{
+		/*	if !SPLITPATH(_each)[0]
+			{
+				// 絶対パスではないので絶対パスに変換
+				_each=RELPATHTOABSPATH(_each,GETSETTING(2))
+			}*/
+			_result ,= _argv[0]+"\"+_each
+		}
+	}
+	_result
+}
+/*
+FENUM2
+{
+//	_abspath = RELPATHTOABSPATH()
+	_result = IARRAY
+	_list = FENUM(_argv[0],_argv[1])
+	foreach _list;_each
+	{
+		if SUBSTR(_each,0,1)=="\"
+		{
+			_each = ERASE(_each,0,1)
+			_result ,= FENUM2(_argv[0]+_each,_argv[1])
+		}
+		else
+		{
+			_result ,= _argv[0]+"\"+_each
+		}
+	}
+//	TMP = _result
+	_result
+}
+*/
+
+
+
+// 相対パスを絶対パスに直す
+// a0：相対パス　a1：基準となるフォルダの絶対パス
+// 返り値：絶対パス
+// AYAのフォルダの絶対パスはGETSETTING(2)で取得可能
+RELPATHTOABSPATH
+{
+	// 処理不能の場合0を返す
+	// 引数不在でreturn
+		if !_argv[0]{0;return}
+		if !_argv[1]{0;return}
+	// 第一引数が絶対・第二引数が相対の場合return
+		if SPLITPATH(_argv[0])[0]{0;return}
+		if ! SPLITPATH(_argv[1])[0]{0;return}
+
+	// _argv[0] ..\..\hoge.txt
+	// _argv[1] D:\hoge1\hoge2\hoge3
+
+	_filename = SPLIT(_argv[0],'\',0)
+
+	// それぞれの要素を調べ、『..』の場合は要素を削除
+	// 削除した数を記録しておく
+	_count = 0
+	_count2 = 0
+	for _i=0;_i<ARRAYSIZE(_filename);_i++
+	{
+		if _filename[_i]=='..'{_count++}
+		if _filename[_i]=='.'{_count2++}
+	}
+	for _i=0;_i<(_count+_count2);_i++
+	{
+		_filename[0]=IARRAY
+	}
+
+	_path = SPLIT(_argv[1],'\',0)
+	if ! _path[ARRAYSIZE(_path)-1]{_path[ARRAYSIZE(_path)-1]=IARRAY}
+	if _count > 0
+	{
+		_path[ARRAYSIZE(_path)-_count,ARRAYSIZE(_path)-1] = IARRAY
+	}
+
+	// 結合
+
+	_path,=_filename
+	_result=''
+	foreach _path;_each
+	{
+		_result+='\'+_each
+	}
+	ERASE(_result,0,1)
+}
+
+PCT
+{
+	if ! ISNUM(_argv[0]){0;return}
+	if RAND(100)<_argv[0]
+	{
+		1
+	}
+	else
+	{
+		0
+	}
+}
+
+BETWEEN
+{
+	if ! ISNUM(_argv[0,2]){0;return}
+	if _argv[1]<=_argv[0] && _argv[0]<=_argv[2]
+	{1}
+	else
+	{0}
+}
+
+TIMESLOT
+{
+	if ! ISNUM(_argv[0,2]){0;return}
+	foreach (0,1,2);_each{if !BETWEEN(_argv[_i],0,23){0;return}}
+
+	if _argv[1]<=_argv[2]
+	{
+		if _argv[1]<=_argv[0] && _argv[0]<=_argv[2]
+		{1}
+		else
+		{0}
+	}
+	else//if _argv[1]>_argv[2]
+	{
+		//22から3のあいだとか
+		if _argv[1] <= _argv[0] || _argv[0] <= _argv[2]
+		{1}
+		else
+		{0}
+	}
+
+
+}
+
+
+
+
+
+
+
+
+BIGGEST
+{
+	_biggest = IARRAY
+	_loop = -1
+	foreach _argv;_each
+	{
+		_loop++
+		if ! ISNUM(_each){continue}
+		if _biggest == '' || _biggest < _each
+		{
+			_biggest[0] = _loop
+			_biggest[1] = _each
+		}
+	}
+	if ! _biggest
+	{
+		0
+	}
+	else
+	{
+		_biggest
+	}
+}
+SMALLEST
+{
+	_smallest = IARRAY
+	_loop = -1
+	foreach _argv;_each
+	{
+		if ! ISNUM(_argv){0;return}
+		if _smallest == '' || _smallest < _each
+		{
+			_smallest[0] = _loop
+			_smallest[1] = _each
+		}
+	}
+	if ! _smallest
+	{
+		0
+	}
+	else
+	{
+		_smallest
+	}
+}
+
+
+ISLEAPYEAR
+{
+/*
+現在のグレゴリオ暦では、うるう年の決め方は以下の規則によっています。 
+1.西暦年数が4で割り切れる年は原則として「うるう年」にする。 
+2.上記の例外として、西暦年数が100で割り切れる年は「平年」とする。
+3.さらに例外として、西暦年数が400で割り切れる年は「うるう年」にする。
+*/
+	if ! ISINTSTR("%(_argv[0])")
+	{0;return}
+
+	if _argv[0]%4
+	{
+		if ! _argv[0]%100
+		{
+			if !_argv[0]%400
+			{
+				1
+			}
+			else
+			{
+				0
+			}
+		}
+		else
+		{
+			0
+		}
+	}
+	else
+	{
+		1
+	}
+}
+
+
+SSTPHEADER
+{
+	_i = ASEARCH(_argv[0],IV_Key)
+	if _i<=0{0;return}
+	IV_Value[_i]
+}
+
+
+

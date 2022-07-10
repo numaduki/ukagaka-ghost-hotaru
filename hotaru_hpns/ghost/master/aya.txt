@@ -1,0 +1,32 @@
+//基礎設定
+
+//文字コード(Shift_JIS)
+//charset, Shift_JIS
+
+//辞書
+dic, dic\_shiori.dic
+dic, dic\blnmenu.dic
+dic, dic\bootend.dic
+dic, dic\cominike.dic
+dic, dic\external.dic
+dic, dic\fortunetelling.ayc
+dic, dic\input.dic
+dic, dic\mouse.dic
+dic, dic\others.dic
+dic, dic\strword.dic
+dic, dic\talk.dic
+dic, dic\utility_com.dic
+dic, dic\utility_orig.dic
+
+//ログを記録する(on)
+//デバッグツールのログも含む
+//iolog, on
+
+//ログ記録の言語(japanese)
+//msglang, japanese
+
+//ログをファイルに保存する場合、ファイルパス(loadの指定したパスからの相対)
+//log, hotaru.log
+
+//関数呼び出しの深さ上限(32)
+//fncdepth, 32

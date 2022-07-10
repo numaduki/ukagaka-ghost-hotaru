@@ -1,0 +1,15 @@
+type,ghost
+name,初心占い師ほたる
+id,hotaru_hpns
+
+craftman,Numaduki
+craftmanw,沼月
+craftmanurl,https://nu.skr.jp/
+
+shiori,aya.dll
+
+sakura.name,ほたる
+kero.name,マスカレード
+
+sstp.allowunspecifiedsend,1
+icon,hotaru.ico
