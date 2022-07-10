@@ -9,6 +9,10 @@
 
 ShowBalloonMenu
 {
+	_debug = Debug_TalkTest
+
+	if _debug { _debug; return }
+
 	_m = SSTPMarker+' '
 
 	'\0\s[0]\i[31]はい？'
@@ -20,7 +24,7 @@ ShowBalloonMenu
 	'\1\s[13]メニューのシンプルさが売りです。\w6\0\s[8]……。'
 	--
 	"\n\n[half]/
-	%(_m)\q[喋る,OnTalk]\_q / \_q\q[再現,OnTalkAgain]\n/
+	%(_m)\q[喋る,OnTalk]\_q\n/
 	%(_m)\q[話しかける,BM_StartCommunicate]\n/
 	%(_m)\q[身の上話,BM_MinoueTalk]\n/
 	%(_m)\q[運勢を占う,BM_FortuneTelling]\n/
@@ -109,14 +113,20 @@ BM_Config
 
 	_m = SSTPMarker
 
-	"\1\s[11]\b[-1]\0\s[0]\i[31]\b[2]"+/
-	"%(_m)\_q見切れたら最小化(\_q\q[ON,BM_MinimizeWhenOutScreen_ON],\q[OFF,BM_MinimizeWhenOutScreen_OFF])\n"+/
+	_additional_menu = ''
+	if BasewareData[0] == 'SSP' {
+		_additional_menu = "\n%(_m)\q[ウィンドウの左上に移動,MoveToScreenLeftTop]\n"
+	}
+
+	"\1\s[11]\b[-1]\0\s[0]\i[31]"+/
+	//"%(_m)\_q見切れたら最小化(\_q\q[ON,BM_MinimizeWhenOutScreen_ON],\q[OFF,BM_MinimizeWhenOutScreen_OFF])\n"+/
 	"%(_m)\_q名前を教えなおす(\_q\q[ほたる,BM_RenameUserHotaru],\q[マスカレード,BM_RenameUserMasquerade])\n"+/
 	"%(_m)\q[誕生日を教える,ShowTenKey]\n"+/
 	"%(_m)\_qブレストガード(\_q\q[ON,BM_BreastGuard_ON],\q[OFF,BM_BreastGuard_OFF])\n"+/
+	_additional_menu + /
 	"\n"+/
 
-	"%(_m)\q[設定おわり,BM_Cancel]\e"
+	"\q[設定おわり,BM_Cancel]\e"
 
 }
 
@@ -139,16 +149,16 @@ BM_RenameUserMasquerade
 }
 
 
-BM_MinimizeWhenOutScreen_ON
-{
-	DataArray[8]=1
-	'\0\s[5]はい。\w6見切れたら隠れますね。\w6\1\s[11]トークの最中の場合はトークが終わってからになる。\w6\s[12]\nCtrlキーでも押してもらえれば。\e'
-}
-BM_MinimizeWhenOutScreen_OFF
-{
-	DataArray[8]=0
-	'\0\s[0]\i[31]では、\w6見切れてもそのままでいますね。\w9\1\s[11]うむ。\e'
-}
+//BM_MinimizeWhenOutScreen_ON
+//{
+//	DataArray[8]=1
+//	'\0\s[5]はい。\w6見切れたら隠れますね。\w6\1\s[11]トークの最中の場合はトークが終わってからになる。\w6\s[12]\nCtrlキーでも押してもらえれば。\e'
+//}
+//BM_MinimizeWhenOutScreen_OFF
+//{
+//	DataArray[8]=0
+//	'\0\s[0]\i[31]では、\w6見切れてもそのままでいますね。\w9\1\s[11]うむ。\e'
+//}
 
 
 BM_BreastGuard_ON
@@ -198,6 +208,10 @@ BM_FortuneTelling
 }
 
 
+MoveToScreenLeftTop {
+	"\0\![move,--X=10,--Y=10,--time=1000,--base=primaryscreen,--base-offset=left.top,--move-offset=left.top]\1\![move,--X=10,--Y=10,--time=1000,--base=primaryscreen,--base-offset=left.top,--move-offset=left.top]\e"
+}
+
 // ## キャンセル
 
 BM_Cancel
@@ -211,14 +225,26 @@ BM_Cancel
 ShowKeroBalloonMenu {
 	_m = SSTPMarker+' '
 
-	"\1\s[11]ほう？\w6\n\n[half]"
+	_additional_menu = ''
+	if BasewareData[0] == 'SSP' {
+		_additional_menu = "%(_m)\q[ウィンドウの左上に移動,MoveToScreenLeftTop]\n"
+	}
+
+	"\1\s[11]\b[2]ほう？\w6\n\n[half]"
 	--
-	"%(_m)\q[ダイス,KBM_Dice]\n/
+	"/
+	%(_m)\q[トーク再現,KBM_ReplayTalk]\n/
+	%(_m)\q[ダイス,KBM_Dice]\n/
 	%(_m)\q[キーコード確認,KBM_Keycode]\n/
+	%(_m)\q[今日は何の日？,KBM_TodayIs]\n/
+	%(_additional_menu)/
 	\n[half]/
 	%(_m)\q[キャンセル,KBM_Cancel]/
 	\e"
 
+}
+KBM_ReplayTalk {
+	OnTalkAgain
 }
 KBM_Dice {
 	"\1\![open,inputbox,dice,-1,6d2]\e"
@@ -228,10 +254,14 @@ KBM_Keycode {
 }
 KBM_Cancel {
 	"\1\s[11]ふふ。\e"
+	"\1\s[16]……。\e"
 }
-
-
-
-
-
-
+KBM_TodayIs {
+	_m = SSTPMarker+' '
+	_gt = GETTIME
+	_event = GetJapanEvent
+	if _event {
+		_event = "\n"+_m + _event
+	}
+	"\1\_q\s[11]"+_m+_gt[0]+"年"+_gt[1]+"月"+_gt[2]+"日（"+GetWeekDayJ+"）"+_event+"\_q\e"
+}

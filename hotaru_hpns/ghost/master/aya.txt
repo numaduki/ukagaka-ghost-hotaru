@@ -9,6 +9,7 @@ dic, dic\blnmenu.dic
 dic, dic\bootend.dic
 dic, dic\cominike.dic
 dic, dic\external.dic
+//dic, dic\fortunetelling.dic
 dic, dic\fortunetelling.ayc
 dic, dic\input.dic
 dic, dic\mouse.dic

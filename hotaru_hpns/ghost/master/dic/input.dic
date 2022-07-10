@@ -73,33 +73,44 @@ OnUserInput
 			'\0\s[0]……\s[8]どうでしたか？\w9\1\s[11]何が。\e'
 			return
 		}
+
 		_str = TOLOWER(R[1])
 		if STRSTR(_str,'d',0)<0
 		{
 			'\0\s[4]……\w6え、\w6えーと。\w9\1\s[11]……\w9例えば『6d2』だと、\w6\n6面体ダイスが2つ。\w6という按配。\![open,inputbox,dice,-1,6d2]\e'
 			return
 		}
-		_array = SPLIT(_str,'d')
-		_d=TOINT(_array[0])
-		_n=TOINT(_array[1])
+		_array = SPLIT(_str, 'd')
+		_d = TOINT(_array[0])
+		_n = TOINT(_array[1])
 
-		_r=0
-		for _i=0;_i<_n;_i++
-		{
-			_r += (RAND(_d)+1)
+		_r = 0
+		if _d > 0 {
+			for _i=0; _i < _n; _i ++ {
+				_r += (RAND(_d) + 1)
+			}
 		}
 
-		if _d==1 || _n<1
-		{
-		"\1\s[11]いや……\w6\s[13]そんなこといわれても。\w6\0\s[6]%(_r)ですっ。\n\n\_q（終了：INPUTBOXを空にしてEnter）\_q\![open,inputbox,dice,-1,%(R[1])]\e"
-		}
-		elseif _d==2
-		{
-		"\1\s[13]それはダイスなのか。\w6\0\s[0]\i[31]……\w6%(_r)ですっ。\n\n\_q（終了：INPUTBOXを空にしてEnter）\_q\![open,inputbox,dice,-1,%(R[1])]\e"
-		}
-		else
-		{
-			"\0\s[1]%(_n)個の%(_d)面体ダイスで、\w6\n%(_r)です。\n\n\_q（終了：INPUTBOXを空にしてEnter）\_q\![open,inputbox,dice,-1,%(R[1])]\e"
+		if _d < 0 { //マイナス面体
+		
+			"\1\s[14]マイナス%(ABS(_d))面体か……。\w6\0\s[8]\i[13]えっと、\w6%(_r)……\w6ですか？\n\n\_q（終了：INPUTBOXを空にしてEnter）\_q\![open,inputbox,dice,-1,%(R[1])]\e"
+		
+		} elseif _n < 0 { // マイナス個
+
+			"\1\s[13]マイナス%(ABS(_n))個か……。\w6\0\s[8]\i[13]%(_r)です。\n\n\_q（終了：INPUTBOXを空にしてEnter）\_q\![open,inputbox,dice,-1,%(R[1])]\e"
+
+		} elseif _d == 1 || _n < 1 { // 1面体または0個
+
+			"\1\s[11]いや……\w6\s[13]そんなこといわれても。\w6\0\s[6]%(_r)ですっ。\n\n\_q（終了：INPUTBOXを空にしてEnter）\_q\![open,inputbox,dice,-1,%(R[1])]\e"
+
+		} elseif _d <= 0 || _d == 2 { // 0面体または2面体
+
+			"\1\s[12]それはダイスなのか。\w6\0\s[0]\i[31]……\w6%(_r)ですっ。\n\n\_q（終了：INPUTBOXを空にしてEnter）\_q\![open,inputbox,dice,-1,%(R[1])]\e"
+
+		} else {
+
+			"\0\s[1]%(_d)面体ダイスが%(_n)個で、\w6\n%(_r)です。\n\n\_q（終了：INPUTBOXを空にしてEnter）\_q\![open,inputbox,dice,-1,%(R[1])]\e"
+
 		}
 	}
 	else
@@ -121,7 +132,6 @@ OnUserInput
 
 
 
-
 // 本体がアクティブな状態でキーが入力された
 // R0 入力されたキー(一般的なキー名、英語)　R1 入力されたキー(Win32仮想キーコード)
 // R2 [S]キーの押しっぱなしカウント
@@ -132,8 +142,8 @@ OnKeyPress
 
 	if _i==75//K
 	{
-		if !ISVAR('TmpShowKeyCodeFlag') {
-			TmpGVList,='TmpShowKeyCodeFlag'
+		if ASEARCH('TmpShowKeyCodeFlag', TmpGVList) <= -1 {
+			TmpGVList ,= TmpShowKeyCodeFlag
 		}
 		if ! TmpShowKeyCodeFlag {
 			TmpShowKeyCodeFlag = 1

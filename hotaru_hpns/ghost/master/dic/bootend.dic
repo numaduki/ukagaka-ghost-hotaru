@@ -81,7 +81,7 @@ InitializeGlobalVar
 	BasewareData=IARRAY
 	SeasonTalkCount = 0
 	HourTalkCount = 0
-	LastTalk='\1\s[10]直前のトークがもう一度再生される。\w9\s[11]\n\n再生できるトークとできないトークがあるので注意してほしい。\w9\nということだ。\w9\0\s[0]……。\e'
+	LastTalk='\1\s[10]直前のトークがもう一度再生される。\w9\s[12]\n\n再生できるトークとできないトークがあるので注意してほしい。\w9\s[11]\n\nってさ。\w9\0\s[0]……。\e'
 }
 
 TryToImportGlobalVar
@@ -376,7 +376,7 @@ SpecialBootTalk
 	}
 	elseif _argv[0] == 'ハロウィン'
 	{
-		"\1\s[11]\0\s[6]んー……、\w9\s[9]\nどうしてみんな私に話してくるんだろう……？\w6\w6\1\s[12]聞こえそうなやつに話しかけるんだから\nしゃあないだろう。\w6\s[10]\nていうか%(username2)、\w6よう。\w6\0\s[0]\i[32]\c！\w6\w6\w6\i[10]\w1\s[5]\n\nど、\w6どうも……。\w6\w6\i[71]\i[36]\n\nちょっと今日は時々変かもしれないですけど、\w6気にしないでくださいね……。\w6\w6\1\s[13]\n\n……。\e"
+		"\1\s[11]\0\s[6]んー……、\w9\s[9]\nどうしてみんな私に話してくるんだろう……？\w6\w6\1\s[12]聞こえそうなやつに話しかけるんだから\nしゃあないだろう。\w6\w6\s[10]\nていうか、\w6%(username2)。\w6よう。\w6\0\s[0]\i[32]\c！\w6\w6\w6\i[10]\w1\s[5]\n\nど、\w6どうも……。\w6\w6\i[71]\i[36]\n\nちょっと今日は時々変かもしれないですけど、\w6気にしないでくださいね……。\w6\w6\1\s[13]\n\n……。\e"
 	}
 	else
 	{
@@ -503,12 +503,15 @@ BootTalk
 */
 
 
-OnGhostUnload
-{
-	ERASEVAR('WeirdsFlag')
+OnGhostUnload {
 	ERASEVAR('Sakura_hwnd')
 	ERASEVAR('Kero_hwnd')
 	ERASEVAR('Uniqueid')
+
+	foreach TmpGVList;_each {
+		ERASEVAR(_each)
+	}
+	ERASEVAR('TmpGVList')
 
 	DataArray[1]=0
 }
