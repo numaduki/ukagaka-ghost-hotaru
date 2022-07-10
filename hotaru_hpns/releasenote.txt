@@ -1,0 +1,589 @@
+----------------------------------------------------------------
+初心占い師ほたる
+更新記録
+
+※バージョン番号の見方:
+　メジャーver.アーカイブver.ネットワーク更新ver
+----------------------------------------------------------------
+
+2022-07-03: phase7.1.7
+トーク追加（1件）
+ダイス機能の改良
+ほたるの「その他の設定」に「ウィンドウの左上に移動」を追加
+単語辞書のメンテナンス
+トークの脱字修正
+
+2021-07-24: phase7.1.6
+祝日判定関数の修正
+マスカレード側メニューに「今日は何の日？」追加
+スクリプトタグ修正
+
+2021-06-06: phase7.1.5
+トーク追加（1件）
+単語辞書のアップデート
+その他メンテナンス
+
+2021-03-13: phase7.1.4
+トーク追加（1件）
+サイト移転に関する変更
+
+2021-02-03: phase7.1.3
+トーク追加（2件）
+節分の日付判定方法の変更
+
+2020-11-28: phase7.1.2
+トーク追加（3件）
+
+2020-10-31: phase7.1.1
+fortunetelling.aycの内容を更新（元データが失われていたがデコードツールを作成して復元した）
+誕生日入力インターフェイスの高速化（タグを調整しただけ）
+マスターシェルのアニメーション定義修正
+リリースノート（このファイル）追加
+
+2020-10-25: phase7.1.0
+同梱バルーンの一部更新
+
+2020-10-20: phase7.0.0
+シェル変更
+同梱バルーンを『Sunao』に変更
+ネットワーク更新URL変更
+単語辞書等のアップデート
+
+2005-11-13: phase6.1.1
+期間限定トーク追加
+ダイス機能の改善・マスカレードの機能説明追加
+最小化解除時に位置を標準に戻す
+
+2005-11-11: phase6.1.0
+
+2005-10-30: phase6.0.8
+行事日の起動・終了・通常トーク追加
+
+2005-10-28: phase6.0.7
+トーク改変・追加・修正・時事単語の更新
+マスカレードのしっぽをダブルクリックで機能説明
+ダイス機能追加(F2キー)
+
+2005-09-24: phase6.0.6
+バルーンメニューで選択肢が選択できなかった不具合を回避
+マウス反応・ゴースト間（汎用）コミュニケーショントーク追加
+猫どりふ反応・きのこ反応追加
+
+2005-09-20: phase6.0.5
+readme.txtに各機能の使用方法を追記
+F1キーでreadme表示
+
+2005-09-19: phase6.0.4
+通常トーク追加
+切り替わり反応のスクリプト修正
+
+2005-09-16: phase6.0.3
+readme更新
+占い結果トーク後のクリック待ちを選択肢に変更・そのほか占い関連
+機能メニューにメール件名一覧のログを削除する項目追加
+
+2005-09-11: phase6.0.2
+誤植修正
+オーナードローメニューのキャプション修正
+
+2005-09-10: phase6.0.1
+readme更新
+最小化時に自発トークしないように変更
+ネットワーク更新後に各機能の保存データが消失する不具合を修正
+
+2005-09-09: phase6.0.0
+シェル・辞書変更
+
+2005-05-12: phase5.11.2
+tk_appli(若干の修正)
+tk_talk(+3)
+
+2005-05-08: phase5.11.1
+tk_blnmenu(バリエーション追加)
+tk_popupmenu(キャプション更新)
+tk_talk(+3)
+tk_time(時報トーク追加)
+
+2005-04-03: phase5.11
+
+2005-03-29: phase5.10.10
+tk_boot(イベント関連の起動・切り替わりトーク追加)
+tk_end(イベント関連の終了・切り替えトーク追加)
+tk_mouse(マウス反応の見直し・追加)
+tk_switch(スクリプトメンテナンス)
+tk_talk(アンカー追加)
+
+2005-03-26: phase5.10.9
+surface10～16.png
+tk_appli(スクリプトメンテナンス)
+tk_etc(スクリプトメンテナンス)
+tk_talk(トーク修正・+1)
+tk_word(カテゴリー追加)
+
+2005-03-23: phase5.10.8
+tk_blnmenu(スクリプト修正・トーク追加)
+tk_cominike(スクリプト修正、コミュニケートトーク追加)
+tk_end(切り替えトーク追加)
+tk_etc（トランスレート関連・インプットボックス関連）
+tk_talk(+1)
+tk_vanish(コード修正)
+tk_word(カテゴリー追加)
+
+2005-03-20: phase5.10.7
+tk_nar(スクリプトメンテナンス・トーク追加)
+tk_talk(トークスクリプトを一部改変)
+tk_time(スクリプトメンテナンス・時報トーク追加)
+
+2005-03-15: phase5.10.6
+tk_appli(猫どりふ反応追加)
+tk_mouse(マウス反応追加)
+tk_talk(スクリプトのメンテナンス・+1・アンカー+2)
+
+2005-03-10: phase5.10.5
+tk_boot(スクリプト追加・トーク追加)
+tk_end(終了トーク追加・スクリプトのメンテナンス)
+tk_etc(関数追加)
+tk_popupmenu(キャプション定義追加)
+tk_talk(+1・-1・バリエーション追加)
+
+2005-03-07: phase5.10.4
+tk_boot(一部を関数化)
+tk_etc(関数追加)
+tk_talk(特殊トーク+1)
+tk_word(追加・削除)
+
+2005-03-04: phase5.10.3
+delete.txt(特殊効果用makotoを不要化したため削除)
+descript.txt(特殊効果用makotoを不要化したため一部削除)
+tk_etc(関数追加)
+tk_talk(特殊トーク+3・スクリプトミス修正)
+
+2005-02-28: phase5.10.2
+tk_define(スクリプト改良)
+tk_end(一部のグローバル変数を保存しないよう仕様変更)
+tk_talk(バリエーション追加・+1)
+
+2005-02-24: phase5.10.1
+ghost-descript.txt（作者名義の変更）
+ghost-readme.txt（同上）
+shell-descript.txt（同上）
+shell-readme.txt（同上）
+tk_blnmenu(変数の移行による更新)
+tk_boot(スクリプト修正・トーク追加)
+tk_end(一部のグローバル変数を保存しないよう仕様変更)
+tk_etc(コメント追記、関数追加)
+tk_nar(トーク追加)
+tk_switch(関数削除・スクリプト書き換え)
+tk_talk(スクリプト修正/+2/-1)
+tk_time(変数の移行による更新)
+tk_utility(スクリプト修正)
+tk_vanish(スクリプト修正)
+tk_word(細部書き換え)
+
+2005-02-22: phase5.1.0
+
+2005-02-22: phase5.9.19
+tk_blnmenu(トーク追加)
+tk_config(設定バルーンの項目を一部削除)
+tk_etc(関数追加)
+tk_talk(バリエーション追加)
+
+2005-02-21: phase5.9.18
+tk_boot(起動トーク追加)
+tk_talk(+2)
+
+2005-02-19: phase5.9.17
+tk_appli（関数の置換）
+tk_boot(関数の置換)
+tk_cominike(メンテナンス・一部改修)
+tk_end(メンテナンス・一部改修)
+tk_etc(記述の修正)
+tk_mouse(メンテナンス・一部改修)
+tk_nar(メンテナンス・一部改修)
+tk_popupmenu(ポップアップメニューをちょっぴり高速化)
+tk_talk(メンテナンス・一部改修・トーク一部修正)
+
+2005-02-18: phase5.9.16
+tk_boot(スクリプトの修正)
+tk_etc(関数追加)
+tk_talk(+1)
+tk_utility(ヘッドライン表示を修正)
+tk_word（単語追加）
+
+2005-02-14: phase5.9.15
+tk_boot(イベントトーク追加)
+tk_end(イベントトーク追加)
+tk_talk(チェイントーク追加)
+
+2005-02-11: phase5.9.14
+readme.txt(更新)
+tk_etc(最小化解除トーク追加)
+tk_popupmenu(更新)
+tk_talk(アンカー追加)
+tk_utility(トーク追加)
+tk_word(追加)
+
+2005-02-09: phase5.9.13
+tk_boot(起動時イベントの変数チェック追加)
+tk_etc(一部削除)
+tk_talk(+1・細部更新・見直し)
+tk_word(カテゴリー追加)
+
+2005-02-07: phase5.9.12
+aya.txt
+tk_boot(通常起動・切り替わりトーク追加)
+tk_cominike(コミュニケート反応トーク追加・コード改良)
+tk_etc（一部削除）
+tk_mouse(反応追加、不具合修正)
+tk_word(カテゴリー追加)
+
+2005-02-04: phase5.9.11
+gerbera.dll(更新)
+tk_blnmenu(不具合修正)
+tk_boot(スクリプト修正)
+tk_etc(不具合修正)
+
+2005-02-03: phase5.9.10
+aya.dll
+tk_boot(行事の日の起動・切り替わりトーク追加)
+tk_etc(更新)
+tk_talk(+2)
+tk_word(追加)
+
+2005-02-01: phase5.9.9
+aya.dll
+tk_boot(通常切り替わりトーク追加)
+tk_etc(関数追加)
+tk_switch(関数を若干変更)
+
+2005-01-31: phase5.9.8
+aya.dll
+tk_etc(更新内容トーク追加・一部削除)
+tk_saori(細部更新)
+tk_shiori3(aya.dllバージョンアップに伴う更新)
+tk_utility(更新内容トーク追加)
+
+2005-01-28: phase5.9.7
+tk_cominike(反応追加)
+tk_switch(細部更新)
+tk_talk(記述ミス修正)
+
+2005-01-27: phase5.9.6
+tk_etc(Rキー押下で直前のトークを再生/F5でリロード)
+tk_popupmenu(配布サイトURL更新)
+tk_talk(-3/+3)
+tk_word(追加)
+
+2005-01-22: phase5.9.5
+tk_etc(関数追加)
+tk_popupmenu(更新)
+tk_talk(スクリプト更新、トーク+1)
+
+2005-01-19: phase5.9.4
+tk_blnmenu(トーク頻度の変動追加)
+tk_config(反応更新)
+tk_etc(一部更新)
+tk_talk(トーク頻度の変動追加)
+
+2005-01-17: phase5.9.3
+aya.dll
+tk_boot(起動トーク追加)
+tk_end(関数追加)
+tk_etc(aya.dllのバージョン番号更新)
+tk_shiori3(aya.dllバージョンアップに伴う更新)
+tk_time(スクリプト更新)
+
+2005-01-15: phase5.9.2
+tk_etc(関数改良)
+tk_nar(nar作成の際のnarのタイプによるトーク更新)
+tk_popupmenu(メニュー文字列追加・更新)
+tk_talk(+1・分岐追加+1)
+
+2005-01-12: phase5.9.1
+tk_cominike(コミュニケーション反応追加)
+tk_nar(アーカイブの種類による反応分岐追加・動作ミス修正)
+tk_talk(追加+2・削除-1)
+
+2005-01-11: phase5.0.9
+
+2005-01-10: phase5.8.7
+tk_appli(猫どりふ反応更新・追加)
+tk_boot(起動トーク追加)
+tk_talk(+2)
+tk_utility(各機能使用時のトーク更新・追加)
+tk_vanish(更新)
+
+2005-01-08: phase5.8.6
+tk_mouse(各反応追加)
+tk_nar(更新ファイル作成時のトーク追加)
+tk_talk(+2)
+tk_word(単語追加)
+
+2005-01-02: phase5.8.5
+tk_boot(起動・切り替わりトーク追加)
+tk_etc(トランスレート関連)
+tk_switch(日付取得関数など追加)
+tk_talk(一部トークの発動確率修正)
+
+2004-12-31: phase5.8.4
+tk_boot(行事の日の起動・切り替わりトーク追加)
+tk_end(行事の日の切り替え・終了トーク追加)
+
+2004-12-29: phase5.8.3
+tk_boot(行事の日の起動・切り替わりトーク更新)
+tk_talk(+2)
+
+2004-12-27: phase5.8.2
+tk_end(リロード時のトーク更新)
+tk_utility(ネットワーク更新時のトーク更新・追加など)
+
+2004-12-25: phase5.8.1
+tk_end(行事の日の切り替え・終了トーク追加)
+tk_etc(トランスレート関連)
+tk_talk(+1)
+tk_word(追加)
+
+2004-12-24: phase5.0.8
+
+2004-12-22: phase5.7.11
+tk_boot(起動、切り替わりトーク追加)
+tk_talk(+2)
+
+2004-12-20: phase5.7.10
+tk_boot(起動・切り替わりトーク追加)
+tk_popupmenu(キャプションを一部更新)
+tk_switch(スクリプト更新)
+tk_talk(+1)
+
+2004-12-17: phase5.7.9
+tk_blnmenu(ほたる側メニューにも『しまう』を追加、他)
+tk_config(スクリプト修正、トーク追加)
+tk_define(一部変更)
+tk_mouse(手、後ろ髪反応追加)
+tk_saori(tk_define変更に関連する変更)
+tk_switch(関数改良)
+tk_talk(tk_define変更に関連する変更)
+tk_time(tk_define変更に関連する変更)
+
+2004-12-14: phase5.7.8
+tk_cominike(コミュニケーショントーク追加)
+tk_etc(コミュニケーション関連)
+tk_talk(トーク+1)
+
+2004-12-13: phase5.7.7
+tk_blnmenu(メニューに『雑談をする』追加)
+tk_cominike(コミュニケーショントーク追加)
+tk_etc(スクリプト追加)
+tk_talk(スクリプト修正)
+
+2004-12-08: phase5.7.6
+tk_boot(切り替わり反応追加)
+tk_end(終了トーク/切り替え反応追加)
+
+2004-12-07: phase5.7.5
+aya.dll
+tk_etc(DLLのバージョン表記修正)
+tk_nar(インストール拒否についての改良）
+tk_shiori3(設定変更)
+
+2004-12-05: phase5.7.4
+tk_config(スクリプト修正)
+tk_mouse(トーク修正)
+tk_talk(トーク+3)
+tk_word(削除と追加)
+
+2004-11-30: phase5.7.3
+tk_appli(猫どりふ反応追加)
+tk_talk(スクリプト修正、トーク+2)
+tk_word(削除と追加)
+
+2004-11-25: phase5.7.2
+gerbera.dll(修正)
+
+2004-11-24: phase5.7.1
+tk_blnmenu(サウンドプレーヤーメニューの表示を改善)
+
+2004-11-22: phase5.7.0
+
+2004-11-21: phase5.6.5
+tk_appli(猫どりふ反応追加)
+tk_etc(記述修正)
+tk_saori(記述修正)
+tk_talk(スクリプト修正、トーク+1)
+
+2004-11-17: phase5.6.4
+readme.txt(少々書き加え)
+tk_blnmenu(バリエーション追加)
+tk_popupmenu(メニュー文字列追加/修正)
+tk_talk(スクリプト改変)
+
+2004-11-14: phase5.6.3
+tk_talk(+2)
+tk_time(時報トーク追加)
+tk_vanish(トーク更新)
+tk_word(追加)
+
+2004-11-04: phase5.6.2
+tk_etc(誤字修正)
+tk_utility(不具合修正)
+
+2004-10-26: phase5.6.1
+aya.dll
+tk_shiori3
+tk_talk(+3)
+tk_utility(細部修正)
+tk_vanish(細部修正)
+
+2004-10-20: phase5.6.0
+
+2004-10-14: phase5.5.5
+tk_popupmenu（更新）
+tk_talk(+3)
+tk_utility（機能使用時トーク追加）
+
+2004-09-25: phase5.5.4
+surface0/4000（細部修正）
+tk_blnmenu（細部修正）
+tk_mouse（頭撫で反応）
+tk_talk(+1)
+tk_utility（ヘッドライン取得の不具合修正）
+tk_word（追加）
+
+2004-09-22: phase5.5.3
+tk_popupmenu（更新）
+tk_talk（+3）
+
+2004-09-13: phase5.5.2
+tk_appli（猫どりふ反応更新）
+tk_blnmenu（表記とスクリプトの修正）
+tk_boot（切り替わりトーク追加）
+tk_mouse（ポニーテール右クリックで即座にアイコン化するように）
+tk_talk（ひみつトーク追加）
+tk_word（単語追加）
+
+2004-08-17: phase5.5.1
+tk_talk（さくらスクリプト修正）
+tk_time（さくらスクリプト修正）
+
+2004-08-16: phase5.5.0
+
+2004-07-31: phase5.4.5
+surface1001-1009,1020-1024,4000
+surface.txt
+tk_blnmenu（修正他）
+tk_boot（グローバル変数関係）
+tk_define
+tk_etc（プレイリストの読み込みの不具合修正）
+tk_talk（さくらスクリプト修正）
+tk_time（立ち時間のカウント機能追加、トークや不具合修正など）
+
+2004-07-20: phase5.4.4
+tk_end（終了トーク変更追加）
+tk_talk（特殊トーク追加）
+
+2004-07-15: phase5.4.3
+tk_talk（コード修正）
+tk_time（コード修正）
+tk_utility（時計合わせ関係）
+tk_word（表記修正）
+
+2004-07-12: phase5.4.2
+tk_boot（切り替え反応）
+tk_end（切り替え反応）
+
+2004-07-11: phase5.4.1
+aya.dll
+gerbera.dll
+ghost/descript.txt
+tk_define
+tk_etc(F1で『Lotus in the dirt』の設定ファイル表示、F2で『Lotus in the Dirt』に切り替え/リロード)
+tk_saori(仕様変更、サーチアンドプレイがF3キーに)
+tk_talk（+3）
+tk_word（追加変更）
+
+2004-07-07: phase5.4.0
+公開1周年
+マスターシェルを『Re:Tails』に変更
+aya.dllを最新版に差し替え
+
+2004-06-08: phase3.3.0
+
+2004-05-27: phase3.2.4
+tk_mouse(誤植修正)
+
+2004-05-26: phase3.2.3
+tk_aitalk(誤植修正)
+
+2004-05-24: phase3.2.2
+tk_audio(EXTM3U形式のプレイリスト追加の際の不具合修正)
+
+2004-05-23: phase3.2.1
+readme2.txt（更新）
+tk_aitalk(+3)
+
+2004-05-20: phase3.2.0
+
+2004-05-03: phase3.1.4
+tk_aitalk(+3)
+
+2004-04-19: phase3.1.3
+tk_aitalk(+3)
+tk_mouse(一部反応復活)
+tk_word(追加・削除)
+
+2004-03-26: phase3.1.2
+tk_aitalk(+3)
+
+2004-03-20: phase3.1.1
+aya.dll(文4の現バージョンに差し替え)
+tk_aitalk(+4)
+tk_bootend(終了トーク)
+tk_etc(メール関係)
+readme2.txt(一部修正)
+
+2004-03-03: phase3.1.0
+
+2004-02-24: phase3.0.5
+tk_aitalk(+3)
+tk_application（猫どりふ反応いくつか追加）
+tk_string(一部修正)
+
+2004-02-21: phase3.0.4
+tk_aitalk(+3)
+ghost/readme.txt（記載URL等修正）
+ghost/readme2.txt（同上）
+
+2004-02-18: phase3.0.3
+tk_bootend(最小化解除反応追加)
+
+2004-01-13: phase3.0.2
+tk_aitalk(+4)
+tk_etc(各機能に関するトーク少量追加)
+tk_mouse(少量追加)
+
+2004-01-06: phase3.0.1
+tk_aitalk(+3)
+tk_bootend(開始時のトーク追加)
+
+2004-01-01: phase3.0.0
+再公開
+マスターシェルを"NOW HERE NO WHERE"に変更
+辞書の内容変更・削除・追加
+
+2003-09-22: phase2.0.1
+ネットワーク更新における不具合を修正
+menu.dic/word.dic/communicate.dic/aitalk.dic
+
+2003-09-18: phase2.0.0
+マスカレード側のsurfaceを追加
+その他ほぼ全部作り直し
+nft_fakelauncher.dic追加
+nft_fakejogdial.dic追加
+
+2003-07-21: phase1.0.1
+シェルのサイズを80%に縮小
+照れ状態の瞬き追加
+dicファイル更新
+
+2003-07-07: phase1.0.0
+公開
