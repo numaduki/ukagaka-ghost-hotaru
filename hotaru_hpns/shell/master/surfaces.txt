@@ -1,0 +1,1679 @@
+// \u
+
+surface0
+{
+element0,overlay,surface0.png,0,0
+
+collision0,108,91,144,118,Face
+collision1,70,212,191,232,Cape
+collision2,155,310,180,400,Band
+collision3,197,235,212,284,Tail
+collision4,55,454,207,479,Skirt
+collision5,82,180,173,203,Bust
+collision6,105,241,124,266,Crystal
+collision7,124,255,154,285,Hand
+collision8,86,10,176,30,Head
+collision9,67,530,178,590,Foot
+
+// ŠJ‚¯¨•Â‚¶
+10interval,never
+10pattern0,1101,5,overlay,96,67
+10pattern1,1102,5,overlay,96,67
+// ŠJ‚¯¨”¼ŠJ‚¯
+11interval,never
+11pattern0,1101,5,overlay,96,67
+
+//@–j - ‚Ó‚Â‚¤
+20interval,never
+20pattern0,1300,0,overlay,95,82
+//@–j - g’ª
+21interval,never
+21pattern0,1301,0,overlay,95,82
+//@–j - ‚Ó‚Â‚¤
+22interval,never
+22pattern0,1300,0,overlay,95,82
+
+// Œû - ‚Æ‚¶
+30interval,never
+30pattern0,1200,0,overlay,116,106
+// Œû - ‚Ù‚Ù‚¦‚İ
+31interval,never
+31pattern0,1201,0,overlay,116,106
+// Œû - ­‚µŠJ‚¯
+32interval,never
+32pattern0,1202,0,overlay,116,106
+// Œû - ‚¿‚ã‚¤‚®‚ç‚¢ŠJ‚¯
+33interval,never
+33pattern0,1203,0,overlay,116,106
+// Œû - Î‚¢
+34interval,never
+34pattern0,1204,0,overlay,116,106
+// Œû - ‘åŠJ‚¯
+35interval,never
+35pattern0,1205,0,overlay,116,106
+// Œû - ”¼Î‚¢
+36interval,never
+36pattern0,1206,0,overlay,116,106
+// Œû - ‘åŠJ‚¯
+37interval,never
+37pattern0,1205,0,overlay,116,106
+// Œû - Î‚¢
+38interval,never
+38pattern0,1204,0,overlay,116,106
+// Œû - ‚¿‚ã‚¤‚®‚ç‚¢ŠJ‚¯
+39interval,never
+39pattern0,1203,0,overlay,116,106
+// Œû - ­‚µŠJ‚¯
+40interval,never
+40pattern0,1202,0,overlay,116,106
+// Œû - ‚Ù‚Ù‚¦‚İ
+41interval,never
+41pattern0,1201,0,overlay,116,106
+// Œû - ‚Æ‚¶
+42interval,never
+42pattern0,1200,0,overlay,116,106
+
+// •â• - “®—h
+60interval,never
+60pattern0,1500,0,overlay,168,50
+// •â• - “{‚è
+61interval,never
+61pattern0,1501,0,overlay,145,24
+// •â• - “®—h‚È‚µ
+62interval,never
+62pattern0,1502,0,overlay,168,50
+// •â• - “{‚è‚È‚µ
+63interval,never
+63pattern0,1503,0,overlay,145,24
+// •â• - “®—h
+64interval,never
+64pattern0,1500,0,overlay,168,50
+// •â• - “{‚è
+65interval,never
+65pattern0,1501,0,overlay,145,24
+
+// ”û - •’Ê
+70interval,never
+70pattern0,1400,0,overlay,95,54
+// ”û - ‰º‚ª‚è
+71interval,never
+71pattern0,1401,0,overlay,95,54
+// ”û - •’Ê
+72interval,never
+72pattern0,1400,0,overlay,95,54
+
+0interval,random,4
+0pattern1,1102,5,overlay,96,67
+0pattern2,1101,20,overlay,96,67
+0pattern3,-1,10,overlay,0,0
+
+//1interval,random,5
+//1pattern1,1102,6,overlay,96,67
+//1pattern2,1101,12,overlay,96,67
+//1pattern3,1100,12,overlay,96,67
+//1pattern5,1102,12,overlay,96,67
+//1pattern6,1101,12,overlay,96,67
+//1pattern7,-1,12,overlay,0,0
+}
+
+surface1
+{
+element0,overlay,surface1000.png,0,0
+// stand
+element1,overlay,surface1102.png,96,67
+// eyes
+element2,overlay,surface1400.png,95,54
+// brows
+element3,overlay,surface1300.png,95,82
+// cheek
+element4,overlay,surface1201.png,116,106
+// mouth
+
+collision0,108,91,144,118,Face
+collision1,70,212,191,232,Cape
+collision2,155,310,180,400,Band
+collision3,197,235,212,284,Tail
+collision4,55,454,207,479,Skirt
+collision5,82,180,173,203,Bust
+collision6,105,241,124,266,Crystal
+collision7,124,255,154,285,Hand
+collision8,86,10,176,30,Head
+collision9,67,530,178,590,Foot
+
+//@•Â‚¶¨ŠJ‚¯
+10interval,never
+10pattern0,1101,5,overlay,96,67
+10pattern1,1100,5,overlay,96,67
+//@–j - g’ª
+11interval,never
+11pattern0,1301,0,overlay,95,82
+}
+
+surface2
+{
+element0,overlay,surface1000.png,0,0
+// stand
+//element1,overlay,surface1100.png,96,67
+element1,overlay,surface1105.png,96,67
+// eyes
+element2,overlay,surface1400.png,95,54
+// brows
+element3,overlay,surface1300.png,95,82
+// cheek
+element4,overlay,surface1203.png,116,106
+// mouth
+
+collision0,108,91,144,118,Face
+collision1,70,212,191,232,Cape
+collision2,155,310,180,400,Band
+collision3,197,235,212,284,Tail
+collision4,55,454,207,479,Skirt
+collision5,82,180,173,203,Bust
+collision6,105,241,124,266,Crystal
+collision7,124,255,154,285,Hand
+collision8,86,10,176,30,Head
+collision9,67,530,178,590,Foot
+
+// ŠJ‚¯¨•Â‚¶
+10interval,never
+10pattern0,1101,5,overlay,96,67
+10pattern1,1102,5,overlay,96,67
+//@–j - g’ª
+11interval,never
+11pattern0,1301,0,overlay,95,82
+// Œû - ‘åŠJ‚¯
+12interval,never
+12pattern0,1205,0,overlay,116,106
+// •â• - “{‚è
+13interval,never
+13pattern0,1501,0,overlay,145,24
+
+0interval,random,4
+0pattern0,1102,5,overlay,96,67
+0pattern1,1101,10,overlay,96,67
+0pattern2,1105,10,overlay,96,67
+0pattern3,1102,10,overlay,96,67
+0pattern4,1101,10,overlay,96,67
+0pattern5,-1,10,overlay,0,0
+}
+
+surface3
+{
+element0,overlay,surface1000.png,0,0
+// stand
+element1,overlay,surface1100.png,96,67
+// eyes
+element2,overlay,surface1401.png,95,54
+// brows
+element3,overlay,surface1300.png,95,82
+// cheek
+element4,overlay,surface1200.png,116,106
+// mouth
+
+collision0,108,91,144,118,Face
+collision1,70,212,191,232,Cape
+collision2,155,310,180,400,Band
+collision3,197,235,212,284,Tail
+collision4,55,454,207,479,Skirt
+collision5,82,180,173,203,Bust
+collision6,105,241,124,266,Crystal
+collision7,124,255,154,285,Hand
+collision8,86,10,176,30,Head
+collision9,67,530,178,590,Foot
+
+// ŠJ‚¯¨•Â‚¶
+10interval,never
+10pattern0,1101,5,overlay,96,67
+10pattern1,1102,5,overlay,96,67
+//@–j - g’ª
+11interval,never
+11pattern0,1301,0,overlay,95,82
+// Œû - ‘åŠJ‚¯
+12interval,never
+12pattern0,1205,0,overlay,116,106
+
+0interval,random,4
+0pattern1,1102,5,overlay,96,67
+0pattern2,1101,20,overlay,96,67
+0pattern3,-1,10,overlay,0,0
+}
+
+surface4
+{
+element0,overlay,surface1000.png,0,0
+// stand
+element1,overlay,surface1102.png,96,67
+// eyes
+element2,overlay,surface1401.png,95,54
+// brows
+element3,overlay,surface1300.png,95,82
+// cheek
+element42,overlay,surface1200.png,116,106
+// mouth
+
+collision0,108,91,144,118,Face
+collision1,70,212,191,232,Cape
+collision2,155,310,180,400,Band
+collision3,197,235,212,284,Tail
+collision4,55,454,207,479,Skirt
+collision5,82,180,173,203,Bust
+collision6,105,241,124,266,Crystal
+collision7,124,255,154,285,Hand
+collision8,86,10,176,30,Head
+collision9,67,530,178,590,Foot
+
+//@•Â‚¶¨ŠJ‚¯
+10interval,never
+10pattern0,1101,5,overlay,96,67
+10pattern1,1100,5,overlay,96,67
+//@–j - g’ª
+11interval,never
+11pattern0,1301,0,overlay,95,82
+}
+
+surface5
+{
+element0,overlay,surface1000.png,0,0
+// stand
+element1,overlay,surface1103.png,96,67
+// eyes
+element2,overlay,surface1400.png,95,54
+// brows
+element3,overlay,surface1300.png,95,82
+// cheek
+element4,overlay,surface1201.png,116,106
+// mouth
+
+collision0,108,91,144,118,Face
+collision1,70,212,191,232,Cape
+collision2,155,310,180,400,Band
+collision3,197,235,212,284,Tail
+collision4,55,454,207,479,Skirt
+collision5,82,180,173,203,Bust
+collision6,105,241,124,266,Crystal
+collision7,124,255,154,285,Hand
+collision8,86,10,176,30,Head
+collision9,67,530,178,590,Foot
+
+// Î‚¢¨ŠJ‚¯
+10interval,never
+10pattern0,1101,5,overlay,96,67
+10pattern1,1100,5,overlay,96,67
+// Î‚¢¨”¼ŠJ‚¯
+11interval,never
+11pattern0,1101,5,overlay,96,67
+//@–j - ‚Ó‚Â‚¤
+20interval,never
+20pattern0,1300,0,overlay,95,82
+//@–j - g’ª
+21interval,never
+21pattern0,1301,0,overlay,95,82
+//@–j - ‚Ó‚Â‚¤
+22interval,never
+22pattern0,1300,0,overlay,95,82
+
+// Œû - ‚Æ‚¶
+30interval,never
+30pattern0,1200,0,overlay,116,106
+// Œû - ‚Ù‚Ù‚¦‚İ
+31interval,never
+31pattern0,1201,0,overlay,116,106
+// Œû - ­‚µŠJ‚¯
+32interval,never
+32pattern0,1202,0,overlay,116,106
+// Œû - ‚¿‚ã‚¤‚®‚ç‚¢ŠJ‚¯
+33interval,never
+33pattern0,1203,0,overlay,116,106
+// Œû - Î‚¢
+34interval,never
+34pattern0,1204,0,overlay,116,106
+// Œû - ‘åŠJ‚¯
+35interval,never
+35pattern0,1205,0,overlay,116,106
+// Œû - ”¼Î‚¢
+36interval,never
+36pattern0,1206,0,overlay,116,106
+// Œû - ‘åŠJ‚¯
+37interval,never
+37pattern0,1205,0,overlay,116,106
+// Œû - Î‚¢
+38interval,never
+38pattern0,1204,0,overlay,116,106
+// Œû - ‚¿‚ã‚¤‚®‚ç‚¢ŠJ‚¯
+39interval,never
+39pattern0,1203,0,overlay,116,106
+// Œû - ­‚µŠJ‚¯
+40interval,never
+40pattern0,1202,0,overlay,116,106
+// Œû - ‚Ù‚Ù‚¦‚İ
+41interval,never
+41pattern0,1201,0,overlay,116,106
+// Œû - ‚Æ‚¶
+42interval,never
+42pattern0,1200,0,overlay,116,106
+
+// •â• - “®—h
+60interval,never
+60pattern0,1500,0,overlay,168,50
+// •â• - “{‚è
+61interval,never
+61pattern0,1501,0,overlay,145,24
+// •â• - “®—h‚È‚µ
+62interval,never
+62pattern0,1502,0,overlay,168,50
+// •â• - “{‚è‚È‚µ
+63interval,never
+63pattern0,1503,0,overlay,145,24
+// •â• - “®—h
+64interval,never
+64pattern0,1500,0,overlay,168,50
+// •â• - “{‚è
+65interval,never
+65pattern0,1501,0,overlay,145,24
+
+// ”û - •’Ê
+70interval,never
+70pattern0,1400,0,overlay,95,54
+// ”û - ‰º‚ª‚è
+71interval,never
+71pattern0,1401,0,overlay,95,54
+// ”û - •’Ê
+72interval,never
+72pattern0,1400,0,overlay,95,54
+}
+
+surface6
+{
+element0,overlay,surface1000.png,0,0
+// stand
+element1,overlay,surface1102.png,96,67
+// eyes
+element2,overlay,surface1400.png,95,54
+// brows
+element3,overlay,surface1300.png,95,82
+// cheek
+element4,overlay,surface1200.png,116,106
+// mouth
+
+collision0,108,91,144,118,Face
+collision1,70,212,191,232,Cape
+collision2,155,310,180,400,Band
+collision3,197,235,212,284,Tail
+collision4,55,454,207,479,Skirt
+collision5,82,180,173,203,Bust
+collision6,105,241,124,266,Crystal
+collision7,124,255,154,285,Hand
+collision8,86,10,176,30,Head
+collision9,67,530,178,590,Foot
+
+// •Â‚¶¨ŠJ‚¯
+10interval,never
+10pattern0,1101,5,overlay,96,67
+10pattern1,1100,5,overlay,96,67
+// •Â‚¶¨”¼ŠJ‚¯
+11interval,never
+11pattern0,1101,5,overlay,96,67
+20interval,never
+20pattern0,1300,0,overlay,95,82
+//@–j - g’ª
+21interval,never
+21pattern0,1301,0,overlay,95,82
+//@–j - ‚Ó‚Â‚¤
+22interval,never
+22pattern0,1300,0,overlay,95,82
+
+// Œû - ‚Æ‚¶
+30interval,never
+30pattern0,1200,0,overlay,116,106
+// Œû - ‚Ù‚Ù‚¦‚İ
+31interval,never
+31pattern0,1201,0,overlay,116,106
+// Œû - ­‚µŠJ‚¯
+32interval,never
+32pattern0,1202,0,overlay,116,106
+// Œû - ‚¿‚ã‚¤‚®‚ç‚¢ŠJ‚¯
+33interval,never
+33pattern0,1203,0,overlay,116,106
+// Œû - Î‚¢
+34interval,never
+34pattern0,1204,0,overlay,116,106
+// Œû - ‘åŠJ‚¯
+35interval,never
+35pattern0,1205,0,overlay,116,106
+// Œû - ”¼Î‚¢
+36interval,never
+36pattern0,1206,0,overlay,116,106
+// Œû - ‘åŠJ‚¯
+37interval,never
+37pattern0,1205,0,overlay,116,106
+// Œû - Î‚¢
+38interval,never
+38pattern0,1204,0,overlay,116,106
+// Œû - ‚¿‚ã‚¤‚®‚ç‚¢ŠJ‚¯
+39interval,never
+39pattern0,1203,0,overlay,116,106
+// Œû - ­‚µŠJ‚¯
+40interval,never
+40pattern0,1202,0,overlay,116,106
+// Œû - ‚Ù‚Ù‚¦‚İ
+41interval,never
+41pattern0,1201,0,overlay,116,106
+// Œû - ‚Æ‚¶
+42interval,never
+42pattern0,1200,0,overlay,116,106
+
+// •â• - “®—h
+60interval,never
+60pattern0,1500,0,overlay,168,50
+// •â• - “{‚è
+61interval,never
+61pattern0,1501,0,overlay,145,24
+// •â• - “®—h‚È‚µ
+62interval,never
+62pattern0,1502,0,overlay,168,50
+// •â• - “{‚è‚È‚µ
+63interval,never
+63pattern0,1503,0,overlay,145,24
+// •â• - “®—h
+64interval,never
+64pattern0,1500,0,overlay,168,50
+// •â• - “{‚è
+65interval,never
+65pattern0,1501,0,overlay,145,24
+
+// ”û - •’Ê
+70interval,never
+70pattern0,1400,0,overlay,95,54
+// ”û - ‰º‚ª‚è
+71interval,never
+71pattern0,1401,0,overlay,95,54
+// ”û - •’Ê
+72interval,never
+72pattern0,1400,0,overlay,95,54
+}
+
+surface7
+{
+element0,overlay,surface1000.png,0,0
+// stand
+element1,overlay,surface1101.png,96,67
+// eyes
+element2,overlay,surface1401.png,95,54
+// brows
+element3,overlay,surface1300.png,95,82
+// cheek
+element4,overlay,surface1203.png,116,106
+// mouth
+
+collision0,108,91,144,118,Face
+collision1,70,212,191,232,Cape
+collision2,155,310,180,400,Band
+collision3,197,235,212,284,Tail
+collision4,55,454,207,479,Skirt
+collision5,82,180,173,203,Bust
+collision6,105,241,124,266,Crystal
+collision7,124,255,154,285,Hand
+collision8,86,10,176,30,Head
+collision9,67,530,178,590,Foot
+
+0interval,random,4
+0pattern0,1102,15,overlay,96,67
+0pattern4,-1,15,overlay,0,0
+
+//@”¼ŠJ‚¯¨•Â‚¶
+10interval,never
+10pattern0,1102,5,overlay,96,67
+//@–j - g’ª
+11interval,never
+11pattern0,1301,0,overlay,95,82
+// Œû - ”¼Î‚¢
+12interval,never
+12pattern0,1206,0,overlay,116,106
+// Œû - •Â‚¶
+13interval,never
+13pattern0,1200,0,overlay,116,106
+// •â• - “®—h
+14interval,never
+14pattern0,1500,0,overlay,168,50
+// •â• - “{‚è
+15interval,never
+15pattern0,1501,0,overlay,145,24
+// ”û - •’Ê
+16interval,never
+16pattern0,1400,0,overlay,95,54
+}
+
+surface8
+{
+element0,overlay,surface1000.png,0,0
+// stand
+element1,overlay,surface1100.png,96,67
+// eyes
+element2,overlay,surface1401.png,95,54
+// brows
+element3,overlay,surface1300.png,95,82
+// cheek
+element4,overlay,surface1201.png,116,106
+// mouth
+
+collision0,108,91,144,118,Face
+collision1,70,212,191,232,Cape
+collision2,155,310,180,400,Band
+collision3,197,235,212,284,Tail
+collision4,55,454,207,479,Skirt
+collision5,82,180,173,203,Bust
+collision6,105,241,124,266,Crystal
+collision7,124,255,154,285,Hand
+collision8,86,10,176,30,Head
+collision9,67,530,178,590,Foot
+
+0interval,random,4
+0pattern0,1102,5,overlay,96,67
+0pattern1,1101,20,overlay,96,67
+0pattern2,-1,10,overlay,0,0
+
+// ŠJ‚¯¨•Â‚¶
+10interval,never
+10pattern0,1101,5,overlay,96,67
+10pattern1,1102,5,overlay,96,67
+//@–j - g’ª
+11interval,never
+11pattern0,1301,0,overlay,95,82
+// Œû - Î‚¢
+12interval,never
+12pattern0,1204,0,overlay,116,106
+// Œû - ‚Ù‚Ù‚¦‚İ
+13interval,never
+13pattern0,1201,0,overlay,116,106
+// Œû - •Â‚¶
+14interval,never
+14pattern0,1200,0,overlay,116,106
+// Œû - ­‚µŠJ‚¯
+15interval,never
+15pattern0,1202,0,overlay,116,106
+// •â• - “®—h
+16interval,never
+16pattern0,1500,0,overlay,168,50
+// •â• - “{‚è
+17interval,never
+17pattern0,1501,0,overlay,145,24
+// ”û - •’Ê
+18interval,never
+18pattern0,1400,0,overlay,95,54
+}
+
+surface9
+{
+element0,overlay,surface1000.png,0,0
+// stand
+//element1,overlay,surface1101.png,96,67
+// eyes
+element1,overlay,surface1104.png,96,67
+// eyes
+element2,overlay,surface1400.png,95,54
+// brows
+element3,overlay,surface1300.png,95,82
+// cheek
+//element4,overlay,surface1200.png,116,106
+element4,overlay,surface1207.png,116,106
+// mouth
+
+collision0,108,91,144,118,Face
+collision1,70,212,191,232,Cape
+collision2,155,310,180,400,Band
+collision3,197,235,212,284,Tail
+collision4,55,454,207,479,Skirt
+collision5,82,180,173,203,Bust
+collision6,105,241,124,266,Crystal
+collision7,124,255,154,285,Hand
+collision8,86,10,176,30,Head
+collision9,67,530,178,590,Foot
+
+// ”¼ŠJ‚¯¨•Â‚¶
+10interval,never
+10pattern0,1102,5,overlay,96,67
+// ”¼ŠJ‚¯¨ŠJ‚¯
+11interval,never
+11pattern0,1100,5,overlay,96,67
+20interval,never
+20pattern0,1300,0,overlay,95,82
+//@–j - g’ª
+21interval,never
+21pattern0,1301,0,overlay,95,82
+//@–j - ‚Ó‚Â‚¤
+22interval,never
+22pattern0,1300,0,overlay,95,82
+
+// Œû - ‚Æ‚¶
+30interval,never
+30pattern0,1200,0,overlay,116,106
+// Œû - ‚Ù‚Ù‚¦‚İ
+31interval,never
+31pattern0,1201,0,overlay,116,106
+// Œû - ­‚µŠJ‚¯
+32interval,never
+32pattern0,1202,0,overlay,116,106
+// Œû - ‚¿‚ã‚¤‚®‚ç‚¢ŠJ‚¯
+33interval,never
+33pattern0,1203,0,overlay,116,106
+// Œû - Î‚¢
+34interval,never
+34pattern0,1204,0,overlay,116,106
+// Œû - ‘åŠJ‚¯
+35interval,never
+35pattern0,1205,0,overlay,116,106
+// Œû - ”¼Î‚¢
+36interval,never
+36pattern0,1206,0,overlay,116,106
+// Œû - ‘åŠJ‚¯
+37interval,never
+37pattern0,1205,0,overlay,116,106
+// Œû - Î‚¢
+38interval,never
+38pattern0,1204,0,overlay,116,106
+// Œû - ‚¿‚ã‚¤‚®‚ç‚¢ŠJ‚¯
+39interval,never
+39pattern0,1203,0,overlay,116,106
+// Œû - ­‚µŠJ‚¯
+40interval,never
+40pattern0,1202,0,overlay,116,106
+// Œû - ‚Ù‚Ù‚¦‚İ
+41interval,never
+41pattern0,1201,0,overlay,116,106
+// Œû - ‚Æ‚¶
+42interval,never
+42pattern0,1200,0,overlay,116,106
+
+// •â• - “®—h
+60interval,never
+60pattern0,1500,0,overlay,168,50
+// •â• - “{‚è
+61interval,never
+61pattern0,1501,0,overlay,145,24
+// •â• - “®—h‚È‚µ
+62interval,never
+62pattern0,1502,0,overlay,168,50
+// •â• - “{‚è‚È‚µ
+63interval,never
+63pattern0,1503,0,overlay,145,24
+// •â• - “®—h
+64interval,never
+64pattern0,1500,0,overlay,168,50
+// •â• - “{‚è
+65interval,never
+65pattern0,1501,0,overlay,145,24
+
+// ”û - •’Ê
+70interval,never
+70pattern0,1400,0,overlay,95,54
+// ”û - ‰º‚ª‚è
+71interval,never
+71pattern0,1401,0,overlay,95,54
+// ”û - •’Ê
+72interval,never
+72pattern0,1400,0,overlay,95,54
+}
+
+surface20
+{
+element0,overlay,surface1000.png,0,0
+// stand
+element1,overlay,surface1100.png,96,67
+// eyes
+element2,overlay,surface1400.png,95,54
+// brows
+element3,overlay,surface1302.png,95,82
+// cheek
+element4,overlay,surface1202.png,116,106
+// mouth
+
+collision0,108,91,144,118,Face
+collision1,70,212,191,232,Cape
+collision2,155,310,180,400,Band
+collision3,197,235,212,284,Tail
+collision4,55,454,207,479,Skirt
+collision5,82,180,173,203,Bust
+collision6,105,241,124,266,Crystal
+collision7,124,255,154,285,Hand
+collision8,86,10,176,30,Head
+collision9,67,530,178,590,Foot
+
+100interval,runonce
+100pattern0,101,0,base,0,0
+100pattern1,102,12,base,0,0
+100pattern2,103,16,base,0,0
+100pattern3,104,16,base,0,0
+}
+
+
+surface21
+{
+element0,overlay,surface1000.png,0,0
+// stand
+element1,overlay,surface1105.png,96,67
+// eyes
+element2,overlay,surface1401.png,95,54
+// brows
+element3,overlay,surface1302.png,95,82
+// cheek
+element4,overlay,surface1207.png,116,106
+// mouth
+
+collision0,108,91,144,118,Face
+collision1,70,212,191,232,Cape
+collision2,155,310,180,400,Band
+collision3,197,235,212,284,Tail
+collision4,55,454,207,479,Skirt
+collision5,82,180,173,203,Bust
+collision6,105,241,124,266,Crystal
+collision7,124,255,154,285,Hand
+collision8,86,10,176,30,Head
+collision9,67,530,178,590,Foot
+
+//0interval,random,4
+//0pattern0,1102,5,overlay,96,67
+//0pattern1,1101,10,overlay,96,67
+//0pattern2,1105,10,overlay,96,67
+//0pattern3,1102,10,overlay,96,67
+//0pattern4,1101,10,overlay,96,67
+//0pattern5,-1,10,overlay,0,0
+}
+
+
+surface30
+{
+// stand
+element0,overlay,surface1002.png,0,0
+
+collision0,108,91,144,118,Face
+collision1,70,212,191,232,Cape
+collision2,155,310,180,400,Band
+collision3,197,235,212,284,Tail
+collision4,55,454,207,479,Skirt
+collision5,82,180,173,203,Bust
+collision6,105,241,124,266,Crystal
+collision7,124,255,154,285,Hand
+collision8,86,10,176,30,Head
+collision9,67,530,178,590,Foot
+
+// ŠJ‚¯¨•Â‚¶
+10interval,never
+10pattern0,1101,5,overlay,96,67
+10pattern1,1102,5,overlay,96,67
+// ŠJ‚¯¨”¼ŠJ‚¯
+11interval,never
+11pattern0,1101,5,overlay,96,67
+
+//@–j - ‚Ó‚Â‚¤
+20interval,never
+20pattern0,1300,0,overlay,95,82
+//@–j - g’ª
+21interval,never
+21pattern0,1301,0,overlay,95,82
+//@–j - ‚Ó‚Â‚¤
+22interval,never
+22pattern0,1300,0,overlay,95,82
+
+// Œû - ‚Æ‚¶
+30interval,never
+30pattern0,1200,0,overlay,116,106
+// Œû - ‚Ù‚Ù‚¦‚İ
+31interval,never
+31pattern0,1201,0,overlay,116,106
+// Œû - ­‚µŠJ‚¯
+32interval,never
+32pattern0,1202,0,overlay,116,106
+// Œû - ‚¿‚ã‚¤‚®‚ç‚¢ŠJ‚¯
+33interval,never
+33pattern0,1203,0,overlay,116,106
+// Œû - Î‚¢
+34interval,never
+34pattern0,1204,0,overlay,116,106
+// Œû - ‘åŠJ‚¯
+35interval,never
+35pattern0,1205,0,overlay,116,106
+// Œû - ”¼Î‚¢
+36interval,never
+36pattern0,1206,0,overlay,116,106
+// Œû - ‘åŠJ‚¯
+37interval,never
+37pattern0,1205,0,overlay,116,106
+// Œû - Î‚¢
+38interval,never
+38pattern0,1204,0,overlay,116,106
+// Œû - ‚¿‚ã‚¤‚®‚ç‚¢ŠJ‚¯
+39interval,never
+39pattern0,1203,0,overlay,116,106
+// Œû - ­‚µŠJ‚¯
+40interval,never
+40pattern0,1202,0,overlay,116,106
+// Œû - ‚Ù‚Ù‚¦‚İ
+41interval,never
+41pattern0,1201,0,overlay,116,106
+// Œû - ‚Æ‚¶
+42interval,never
+42pattern0,1200,0,overlay,116,106
+
+// •â• - “®—h
+60interval,never
+60pattern0,1500,0,overlay,168,50
+// •â• - “{‚è
+61interval,never
+61pattern0,1501,0,overlay,145,24
+// •â• - “®—h‚È‚µ
+62interval,never
+62pattern0,1502,0,overlay,168,50
+// •â• - “{‚è‚È‚µ
+63interval,never
+63pattern0,1503,0,overlay,145,24
+// •â• - “®—h
+64interval,never
+64pattern0,1500,0,overlay,168,50
+// •â• - “{‚è
+65interval,never
+65pattern0,1501,0,overlay,145,24
+
+// ”û - •’Ê
+70interval,never
+70pattern0,1400,0,overlay,95,54
+// ”û - ‰º‚ª‚è
+71interval,never
+71pattern0,1401,0,overlay,95,54
+// ”û - •’Ê
+72interval,never
+72pattern0,1400,0,overlay,95,54
+
+0interval,random,4
+0pattern0,1101,5,overlay,96,67
+0pattern1,1102,5,overlay,96,67
+0pattern2,1101,25,overlay,96,67
+0pattern3,-1,10,overlay,0,0
+
+1interval,random,5
+1pattern0,1101,3,overlay,96,67
+1pattern1,1102,3,overlay,96,67
+1pattern2,1101,6,overlay,96,67
+1pattern3,1100,3,overlay,96,67
+1pattern4,1101,25,overlay,96,67
+1pattern5,1102,3,overlay,96,67
+1pattern6,1101,6,overlay,96,67
+1pattern7,-1,3,overlay,0,0
+}
+
+surface31
+{
+element0,overlay,surface1002.png,0,0
+// stand
+element1,overlay,surface1103.png,96,67
+// eyes
+element2,overlay,surface1400.png,95,54
+// brows
+element3,overlay,surface1300.png,95,82
+// cheek
+element4,overlay,surface1201.png,116,106
+// mouth
+
+collision0,108,91,144,118,Face
+collision1,70,212,191,232,Cape
+collision2,155,310,180,400,Band
+collision3,197,235,212,284,Tail
+collision4,55,454,207,479,Skirt
+collision5,82,180,173,203,Bust
+collision6,105,241,124,266,Crystal
+collision7,124,255,154,285,Hand
+collision8,86,10,176,30,Head
+collision9,67,530,178,590,Foot
+
+// Î‚¢¨ŠJ‚¯
+10interval,never
+10pattern0,1101,5,overlay,96,67
+10pattern1,1100,5,overlay,96,67
+// Î‚¢¨”¼ŠJ‚¯
+11interval,never
+11pattern0,1101,5,overlay,96,67
+//@–j - ‚Ó‚Â‚¤
+20interval,never
+20pattern0,1300,0,overlay,95,82
+//@–j - g’ª
+21interval,never
+21pattern0,1301,0,overlay,95,82
+//@–j - ‚Ó‚Â‚¤
+22interval,never
+22pattern0,1300,0,overlay,95,82
+
+// Œû - ‚Æ‚¶
+30interval,never
+30pattern0,1200,0,overlay,116,106
+// Œû - ‚Ù‚Ù‚¦‚İ
+31interval,never
+31pattern0,1201,0,overlay,116,106
+// Œû - ­‚µŠJ‚¯
+32interval,never
+32pattern0,1202,0,overlay,116,106
+// Œû - ‚¿‚ã‚¤‚®‚ç‚¢ŠJ‚¯
+33interval,never
+33pattern0,1203,0,overlay,116,106
+// Œû - Î‚¢
+34interval,never
+34pattern0,1204,0,overlay,116,106
+// Œû - ‘åŠJ‚¯
+35interval,never
+35pattern0,1205,0,overlay,116,106
+// Œû - ”¼Î‚¢
+36interval,never
+36pattern0,1206,0,overlay,116,106
+// Œû - ‘åŠJ‚¯
+37interval,never
+37pattern0,1205,0,overlay,116,106
+// Œû - Î‚¢
+38interval,never
+38pattern0,1204,0,overlay,116,106
+// Œû - ‚¿‚ã‚¤‚®‚ç‚¢ŠJ‚¯
+39interval,never
+39pattern0,1203,0,overlay,116,106
+// Œû - ­‚µŠJ‚¯
+40interval,never
+40pattern0,1202,0,overlay,116,106
+// Œû - ‚Ù‚Ù‚¦‚İ
+41interval,never
+41pattern0,1201,0,overlay,116,106
+// Œû - ‚Æ‚¶
+42interval,never
+42pattern0,1200,0,overlay,116,106
+
+// •â• - “®—h
+60interval,never
+60pattern0,1500,0,overlay,168,50
+// •â• - “{‚è
+61interval,never
+61pattern0,1501,0,overlay,145,24
+// •â• - “®—h‚È‚µ
+62interval,never
+62pattern0,1502,0,overlay,168,50
+// •â• - “{‚è‚È‚µ
+63interval,never
+63pattern0,1503,0,overlay,145,24
+// •â• - “®—h
+64interval,never
+64pattern0,1500,0,overlay,168,50
+// •â• - “{‚è
+65interval,never
+65pattern0,1501,0,overlay,145,24
+
+// ”û - •’Ê
+70interval,never
+70pattern0,1400,0,overlay,95,54
+// ”û - ‰º‚ª‚è
+71interval,never
+71pattern0,1401,0,overlay,95,54
+// ”û - •’Ê
+72interval,never
+72pattern0,1400,0,overlay,95,54
+}
+
+surface32
+{
+element0,overlay,surface1002.png,0,0
+// stand
+element1,overlay,surface1102.png,96,67
+// eyes
+element2,overlay,surface1400.png,95,54
+// brows
+element3,overlay,surface1300.png,95,82
+// cheek
+element4,overlay,surface1200.png,116,106
+// mouth
+
+
+collision0,108,91,144,118,Face
+collision1,70,212,191,232,Cape
+collision2,155,310,180,400,Band
+collision3,197,235,212,284,Tail
+collision4,55,454,207,479,Skirt
+collision5,82,180,173,203,Bust
+collision6,105,241,124,266,Crystal
+collision7,124,255,154,285,Hand
+collision8,86,10,176,30,Head
+collision9,67,530,178,590,Foot
+
+// •Â‚¶¨ŠJ‚¯
+10interval,never
+10pattern0,1101,5,overlay,96,67
+10pattern1,1100,5,overlay,96,67
+// •Â‚¶¨”¼ŠJ‚¯
+11interval,never
+11pattern0,1101,5,overlay,96,67
+20interval,never
+20pattern0,1300,0,overlay,95,82
+//@–j - g’ª
+21interval,never
+21pattern0,1301,0,overlay,95,82
+//@–j - ‚Ó‚Â‚¤
+22interval,never
+22pattern0,1300,0,overlay,95,82
+
+// Œû - ‚Æ‚¶
+30interval,never
+30pattern0,1200,0,overlay,116,106
+// Œû - ‚Ù‚Ù‚¦‚İ
+31interval,never
+31pattern0,1201,0,overlay,116,106
+// Œû - ­‚µŠJ‚¯
+32interval,never
+32pattern0,1202,0,overlay,116,106
+// Œû - ‚¿‚ã‚¤‚®‚ç‚¢ŠJ‚¯
+33interval,never
+33pattern0,1203,0,overlay,116,106
+// Œû - Î‚¢
+34interval,never
+34pattern0,1204,0,overlay,116,106
+// Œû - ‘åŠJ‚¯
+35interval,never
+35pattern0,1205,0,overlay,116,106
+// Œû - ”¼Î‚¢
+36interval,never
+36pattern0,1206,0,overlay,116,106
+// Œû - ‘åŠJ‚¯
+37interval,never
+37pattern0,1205,0,overlay,116,106
+// Œû - Î‚¢
+38interval,never
+38pattern0,1204,0,overlay,116,106
+// Œû - ‚¿‚ã‚¤‚®‚ç‚¢ŠJ‚¯
+39interval,never
+39pattern0,1203,0,overlay,116,106
+// Œû - ­‚µŠJ‚¯
+40interval,never
+40pattern0,1202,0,overlay,116,106
+// Œû - ‚Ù‚Ù‚¦‚İ
+41interval,never
+41pattern0,1201,0,overlay,116,106
+// Œû - ‚Æ‚¶
+42interval,never
+42pattern0,1200,0,overlay,116,106
+
+// •â• - “®—h
+60interval,never
+60pattern0,1500,0,overlay,168,50
+// •â• - “{‚è
+61interval,never
+61pattern0,1501,0,overlay,145,24
+// •â• - “®—h‚È‚µ
+62interval,never
+62pattern0,1502,0,overlay,168,50
+// •â• - “{‚è‚È‚µ
+63interval,never
+63pattern0,1503,0,overlay,145,24
+// •â• - “®—h
+64interval,never
+64pattern0,1500,0,overlay,168,50
+// •â• - “{‚è
+65interval,never
+65pattern0,1501,0,overlay,145,24
+
+// ”û - •’Ê
+70interval,never
+70pattern0,1400,0,overlay,95,54
+// ”û - ‰º‚ª‚è
+71interval,never
+71pattern0,1401,0,overlay,95,54
+// ”û - •’Ê
+72interval,never
+72pattern0,1400,0,overlay,95,54
+}
+
+surface33
+{
+element0,overlay,surface1002.png,0,0
+// stand
+element1,overlay,surface1101.png,96,67
+// eyes
+element2,overlay,surface1400.png,95,54
+// brows
+element3,overlay,surface1300.png,95,82
+// cheek
+element4,overlay,surface1200.png,116,106
+// mouth
+
+
+collision0,108,91,144,118,Face
+collision1,70,212,191,232,Cape
+collision2,155,310,180,400,Band
+collision3,197,235,212,284,Tail
+collision4,55,454,207,479,Skirt
+collision5,82,180,173,203,Bust
+collision6,105,241,124,266,Crystal
+collision7,124,255,154,285,Hand
+collision8,86,10,176,30,Head
+collision9,67,530,178,590,Foot
+
+0interval,random,4
+0pattern0,1102,5,overlay,96,67
+0pattern1,-1,10,overlay,0,0
+
+// ”¼ŠJ‚¯¨•Â‚¶
+10interval,never
+10pattern0,1102,5,overlay,96,67
+// ”¼ŠJ‚¯¨ŠJ‚¯
+11interval,never
+11pattern0,1100,5,overlay,96,67
+20interval,never
+20pattern0,1300,0,overlay,95,82
+//@–j - g’ª
+21interval,never
+21pattern0,1301,0,overlay,95,82
+//@–j - ‚Ó‚Â‚¤
+22interval,never
+22pattern0,1300,0,overlay,95,82
+
+// Œû - ‚Æ‚¶
+30interval,never
+30pattern0,1200,0,overlay,116,106
+// Œû - ‚Ù‚Ù‚¦‚İ
+31interval,never
+31pattern0,1201,0,overlay,116,106
+// Œû - ­‚µŠJ‚¯
+32interval,never
+32pattern0,1202,0,overlay,116,106
+// Œû - ‚¿‚ã‚¤‚®‚ç‚¢ŠJ‚¯
+33interval,never
+33pattern0,1203,0,overlay,116,106
+// Œû - Î‚¢
+34interval,never
+34pattern0,1204,0,overlay,116,106
+// Œû - ‘åŠJ‚¯
+35interval,never
+35pattern0,1205,0,overlay,116,106
+// Œû - ”¼Î‚¢
+36interval,never
+36pattern0,1206,0,overlay,116,106
+// Œû - ‘åŠJ‚¯
+37interval,never
+37pattern0,1205,0,overlay,116,106
+// Œû - Î‚¢
+38interval,never
+38pattern0,1204,0,overlay,116,106
+// Œû - ‚¿‚ã‚¤‚®‚ç‚¢ŠJ‚¯
+39interval,never
+39pattern0,1203,0,overlay,116,106
+// Œû - ­‚µŠJ‚¯
+40interval,never
+40pattern0,1202,0,overlay,116,106
+// Œû - ‚Ù‚Ù‚¦‚İ
+41interval,never
+41pattern0,1201,0,overlay,116,106
+// Œû - ‚Æ‚¶
+42interval,never
+42pattern0,1200,0,overlay,116,106
+
+// •â• - “®—h
+60interval,never
+60pattern0,1500,0,overlay,168,50
+// •â• - “{‚è
+61interval,never
+61pattern0,1501,0,overlay,145,24
+// •â• - “®—h‚È‚µ
+62interval,never
+62pattern0,1502,0,overlay,168,50
+// •â• - “{‚è‚È‚µ
+63interval,never
+63pattern0,1503,0,overlay,145,24
+// •â• - “®—h
+64interval,never
+64pattern0,1500,0,overlay,168,50
+// •â• - “{‚è
+65interval,never
+65pattern0,1501,0,overlay,145,24
+
+// ”û - •’Ê
+70interval,never
+70pattern0,1400,0,overlay,95,54
+// ”û - ‰º‚ª‚è
+71interval,never
+71pattern0,1401,0,overlay,95,54
+// ”û - •’Ê
+72interval,never
+72pattern0,1400,0,overlay,95,54
+}
+
+
+
+surface40
+{
+// stand
+element0,overlay,surface1001.png,0,0
+
+collision0,108,91,144,118,Face
+collision1,70,212,191,232,Cape
+collision2,155,310,180,400,Band
+collision3,197,235,212,284,Tail
+collision4,55,454,207,479,Skirt
+collision5,82,180,173,203,Bust
+collision6,105,241,124,266,Crystal
+collision7,124,255,154,285,Hand
+collision8,86,10,176,30,Head
+collision9,67,530,178,590,Foot
+
+// ŠJ‚¯¨•Â‚¶
+10interval,never
+10pattern0,1101,5,overlay,96,67
+10pattern1,1102,5,overlay,96,67
+// ŠJ‚¯¨”¼ŠJ‚¯
+11interval,never
+11pattern0,1101,5,overlay,96,67
+
+//@–j - ‚Ó‚Â‚¤
+20interval,never
+20pattern0,1300,0,overlay,95,82
+//@–j - g’ª
+21interval,never
+21pattern0,1301,0,overlay,95,82
+//@–j - ‚Ó‚Â‚¤
+22interval,never
+22pattern0,1300,0,overlay,95,82
+
+// Œû - ‚Æ‚¶
+30interval,never
+30pattern0,1200,0,overlay,116,106
+// Œû - ‚Ù‚Ù‚¦‚İ
+31interval,never
+31pattern0,1201,0,overlay,116,106
+// Œû - ­‚µŠJ‚¯
+32interval,never
+32pattern0,1202,0,overlay,116,106
+// Œû - ‚¿‚ã‚¤‚®‚ç‚¢ŠJ‚¯
+33interval,never
+33pattern0,1203,0,overlay,116,106
+// Œû - Î‚¢
+34interval,never
+34pattern0,1204,0,overlay,116,106
+// Œû - ‘åŠJ‚¯
+35interval,never
+35pattern0,1205,0,overlay,116,106
+// Œû - ”¼Î‚¢
+36interval,never
+36pattern0,1206,0,overlay,116,106
+// Œû - ‘åŠJ‚¯
+37interval,never
+37pattern0,1205,0,overlay,116,106
+// Œû - Î‚¢
+38interval,never
+38pattern0,1204,0,overlay,116,106
+// Œû - ‚¿‚ã‚¤‚®‚ç‚¢ŠJ‚¯
+39interval,never
+39pattern0,1203,0,overlay,116,106
+// Œû - ­‚µŠJ‚¯
+40interval,never
+40pattern0,1202,0,overlay,116,106
+// Œû - ‚Ù‚Ù‚¦‚İ
+41interval,never
+41pattern0,1201,0,overlay,116,106
+// Œû - ‚Æ‚¶
+42interval,never
+42pattern0,1200,0,overlay,116,106
+
+// •â• - “®—h
+60interval,never
+60pattern0,1500,0,overlay,168,50
+// •â• - “{‚è
+61interval,never
+61pattern0,1501,0,overlay,145,24
+// •â• - “®—h‚È‚µ
+62interval,never
+62pattern0,1502,0,overlay,168,50
+// •â• - “{‚è‚È‚µ
+63interval,never
+63pattern0,1503,0,overlay,145,24
+// •â• - “®—h
+64interval,never
+64pattern0,1500,0,overlay,168,50
+// •â• - “{‚è
+65interval,never
+65pattern0,1501,0,overlay,145,24
+
+// ”û - •’Ê
+70interval,never
+70pattern0,1400,0,overlay,95,54
+// ”û - ‰º‚ª‚è
+71interval,never
+71pattern0,1401,0,overlay,95,54
+// ”û - •’Ê
+72interval,never
+72pattern0,1400,0,overlay,95,54
+
+0interval,random,4
+0pattern0,1101,5,overlay,96,67
+0pattern1,1102,5,overlay,96,67
+0pattern2,1101,25,overlay,96,67
+0pattern3,-1,10,overlay,0,0
+
+1interval,random,5
+1pattern0,1101,3,overlay,96,67
+1pattern1,1102,3,overlay,96,67
+1pattern2,1101,6,overlay,96,67
+1pattern3,1100,3,overlay,96,67
+1pattern4,1101,25,overlay,96,67
+1pattern5,1102,3,overlay,96,67
+1pattern6,1101,6,overlay,96,67
+1pattern7,-1,3,overlay,0,0
+}
+
+surface42
+{
+element0,overlay,surface1001.png,0,0
+// stand
+element1,overlay,surface1102.png,96,67
+// eyes
+element2,overlay,surface1400.png,95,54
+// brows
+element3,overlay,surface1300.png,95,82
+// cheek
+element4,overlay,surface1200.png,116,106
+// mouth
+
+collision0,108,91,144,118,Face
+collision1,70,212,191,232,Cape
+collision2,155,310,180,400,Band
+collision3,197,235,212,284,Tail
+collision4,55,454,207,479,Skirt
+collision5,82,180,173,203,Bust
+collision6,105,241,124,266,Crystal
+collision7,124,255,154,285,Hand
+collision8,86,10,176,30,Head
+collision9,67,530,178,590,Foot
+
+// •Â‚¶¨ŠJ‚¯
+10interval,never
+10pattern0,1101,5,overlay,96,67
+10pattern1,1100,5,overlay,96,67
+// •Â‚¶¨”¼ŠJ‚¯
+11interval,never
+11pattern0,1101,5,overlay,96,67
+20interval,never
+20pattern0,1300,0,overlay,95,82
+//@–j - g’ª
+21interval,never
+21pattern0,1301,0,overlay,95,82
+//@–j - ‚Ó‚Â‚¤
+22interval,never
+22pattern0,1300,0,overlay,95,82
+
+// Œû - ‚Æ‚¶
+30interval,never
+30pattern0,1200,0,overlay,116,106
+// Œû - ‚Ù‚Ù‚¦‚İ
+31interval,never
+31pattern0,1201,0,overlay,116,106
+// Œû - ­‚µŠJ‚¯
+32interval,never
+32pattern0,1202,0,overlay,116,106
+// Œû - ‚¿‚ã‚¤‚®‚ç‚¢ŠJ‚¯
+33interval,never
+33pattern0,1203,0,overlay,116,106
+// Œû - Î‚¢
+34interval,never
+34pattern0,1204,0,overlay,116,106
+// Œû - ‘åŠJ‚¯
+35interval,never
+35pattern0,1205,0,overlay,116,106
+// Œû - ”¼Î‚¢
+36interval,never
+36pattern0,1206,0,overlay,116,106
+// Œû - ‘åŠJ‚¯
+37interval,never
+37pattern0,1205,0,overlay,116,106
+// Œû - Î‚¢
+38interval,never
+38pattern0,1204,0,overlay,116,106
+// Œû - ‚¿‚ã‚¤‚®‚ç‚¢ŠJ‚¯
+39interval,never
+39pattern0,1203,0,overlay,116,106
+// Œû - ­‚µŠJ‚¯
+40interval,never
+40pattern0,1202,0,overlay,116,106
+// Œû - ‚Ù‚Ù‚¦‚İ
+41interval,never
+41pattern0,1201,0,overlay,116,106
+// Œû - ‚Æ‚¶
+42interval,never
+42pattern0,1200,0,overlay,116,106
+
+// •â• - “®—h
+60interval,never
+60pattern0,1500,0,overlay,168,50
+// •â• - “{‚è
+61interval,never
+61pattern0,1501,0,overlay,145,24
+// •â• - “®—h‚È‚µ
+62interval,never
+62pattern0,1502,0,overlay,168,50
+// •â• - “{‚è‚È‚µ
+63interval,never
+63pattern0,1503,0,overlay,145,24
+// •â• - “®—h
+64interval,never
+64pattern0,1500,0,overlay,168,50
+// •â• - “{‚è
+65interval,never
+65pattern0,1501,0,overlay,145,24
+
+// ”û - •’Ê
+70interval,never
+70pattern0,1400,0,overlay,95,54
+// ”û - ‰º‚ª‚è
+71interval,never
+71pattern0,1401,0,overlay,95,54
+// ”û - •’Ê
+72interval,never
+72pattern0,1400,0,overlay,95,54
+}
+
+
+
+
+surface101
+{
+element0,overlay,surface1005.png,0,0
+// stand
+element1,overlay,surface1100.png,96,67
+// eyes
+element2,overlay,surface1400.png,95,54
+// brows
+element3,overlay,surface1300.png,95,82
+// cheek
+element4,overlay,surface1202.png,116,106
+// mouth
+}
+
+surface102
+{
+element0,overlay,surface1004.png,0,0
+// stand
+element1,overlay,surface1105.png,96,67
+// eyes
+element2,overlay,surface1400.png,95,54
+// brows
+element3,overlay,surface1301.png,95,82
+// cheek
+element4,overlay,surface1205.png,116,106
+// mouth
+}
+
+surface103
+{
+element0,overlay,surface1003.png,0,0
+// stand
+element1,overlay,surface1105.png,96,67
+// eyes
+element2,overlay,surface1400.png,95,54
+// brows
+element3,overlay,surface1301.png,95,82
+// cheek
+element4,overlay,surface1205.png,116,106
+// mouth
+}
+
+surface104
+{
+element0,overlay,surface1000.png,0,0
+// stand
+element1,overlay,surface1105.png,96,67
+// eyes
+element2,overlay,surface1400.png,95,54
+// brows
+element3,overlay,surface1301.png,95,82
+// cheek
+element4,overlay,surface1205.png,116,106
+// mouth
+}
+
+// \u
+
+surface10
+{
+element0,base,surface10.png,0,0
+
+collision0,30,20,80,65,Face
+collision1,85,120,110,150,Tail
+collision2,75,150,110,180,Tail
+}
+
+surface11
+{
+element0,base,surface10.png,0,0
+element1,overlay,surface2000.png,27,23
+
+collision0,30,20,80,65,Face
+collision1,85,120,110,150,Tail
+collision2,75,150,110,180,Tail
+
+point.centerx,67
+point.centery,70
+point.kinoko.centerx,67
+point.kinoko.centery,5
+
+0interval,never
+0pattern0,2100,0,overlay,27,23
+1interval,never
+1pattern0,2101,0,overlay,27,23
+}
+
+surface12
+{
+element0,base,surface10.png,0,0
+element1,overlay,surface2001.png,27,23
+
+collision0,30,20,80,65,Face
+collision1,85,120,110,150,Tail
+collision2,75,150,110,180,Tail
+
+point.centerx,67
+point.centery,70
+point.kinoko.centerx,67
+point.kinoko.centery,5
+
+0interval,never
+0pattern0,2100,0,overlay,27,23
+1interval,never
+1pattern0,2101,0,overlay,27,23
+}
+
+surface13
+{
+element0,base,surface10.png,0,0
+element1,overlay,surface2002.png,27,23
+
+collision0,30,20,80,65,Face
+collision1,85,120,110,150,Tail
+collision2,75,150,110,180,Tail
+
+point.centerx,67
+point.centery,70
+point.kinoko.centerx,67
+point.kinoko.centery,5
+
+0interval,never
+0pattern0,2100,0,overlay,27,23
+1interval,never
+1pattern0,2101,0,overlay,27,23
+}
+
+surface14
+{
+element0,base,surface10.png,0,0
+element1,overlay,surface2003.png,27,23
+
+collision0,30,20,80,65,Face
+collision1,85,120,110,150,Tail
+collision2,75,150,110,180,Tail
+
+point.centerx,67
+point.centery,70
+point.kinoko.centerx,67
+point.kinoko.centery,5
+
+0interval,never
+0pattern0,2100,0,overlay,27,23
+1interval,never
+1pattern0,2101,0,overlay,27,23
+}
+
+surface15
+{
+element0,base,surface10.png,0,0
+element1,overlay,surface2004.png,27,23
+
+collision0,30,20,80,65,Face
+collision1,85,120,110,150,Tail
+collision2,75,150,110,180,Tail
+
+point.centerx,67
+point.centery,70
+point.kinoko.centerx,67
+point.kinoko.centery,5
+
+0interval,never
+0pattern0,2100,0,overlay,27,23
+1interval,never
+1pattern0,2101,0,overlay,27,23
+}
+
+surface16
+{
+element0,base,surface10.png,0,0
+element1,overlay,surface2005.png,27,23
+
+collision0,30,20,80,65,Face
+collision1,85,120,110,150,Tail
+collision2,75,150,110,180,Tail
+
+point.centerx,67
+point.centery,70
+point.kinoko.centerx,67
+point.kinoko.centery,5
+
+0interval,never
+0pattern0,2100,0,overlay,27,23
+1interval,never
+1pattern0,2101,0,overlay,27,23
+}
+
+surface17
+{
+element0,base,surface10.png,0,0
+element1,overlay,surface2006.png,27,23
+
+collision0,30,20,80,65,Face
+collision1,85,120,110,150,Tail
+collision2,75,150,110,180,Tail
+
+point.centerx,67
+point.centery,70
+point.kinoko.centerx,67
+point.kinoko.centery,5
+
+0interval,never
+0pattern0,2100,0,overlay,27,23
+1interval,never
+1pattern0,2101,0,overlay,27,23
+}
