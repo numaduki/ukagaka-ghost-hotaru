@@ -648,8 +648,8 @@ sakura.recommendsites
 {
 	_now = GETTIME
 	"/
-	nu（作者ウェブサイト）/
-	[C1]http://nu.skr.jp/[C2]/
+	numaduki creation（作者ウェブサイト）/
+	[C1]https://num.static.jp/[C2]/
 	"
 }
 
@@ -763,7 +763,7 @@ version {
 
 craftman { 'umeici' }
 craftmanw { '梅市' }
-homeurl { 'https://numaduki.github.io/ukagaka-ghost-hotaru/hotaru_hpns/' }
+homeurl { 'https://num.static.jp/netowaku/hotaru_hpns/' }
 
 
 // SSTPを使用できるアプリケーションから送信されるスクリプトに
