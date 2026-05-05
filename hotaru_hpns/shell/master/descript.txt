@@ -4,7 +4,7 @@ id,nice_to_meet_u
 
 craftman,Numaduki
 craftmanw,ÀŒ
-craftmanurl,https://nu.skr.jp/
+craftmanurl,https://num.static.jp/
 
 sakura.balloon.alignment,none
 kero.balloon.alignment,none

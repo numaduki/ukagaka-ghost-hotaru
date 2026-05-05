@@ -7,4 +7,4 @@ Nice to meet U
 ●クレジット
 
 イラスト・データ作成: 沼月
-https://nu.skr.jp
+https://num.static.jp/

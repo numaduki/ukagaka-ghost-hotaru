@@ -103,9 +103,9 @@ collision9,67,530,178,590,Foot
 72pattern0,1400,0,overlay,95,54
 
 0interval,random,4
-0pattern1,1102,5,overlay,96,67
-0pattern2,1101,20,overlay,96,67
-0pattern3,-1,10,overlay,0,0
+0pattern0,1102,5,overlay,96,67
+0pattern1,1101,20,overlay,96,67
+0pattern2,-1,10,overlay,0,0
 
 //1interval,random,5
 //1pattern1,1102,6,overlay,96,67
@@ -233,9 +233,9 @@ collision9,67,530,178,590,Foot
 12pattern0,1205,0,overlay,116,106
 
 0interval,random,4
-0pattern1,1102,5,overlay,96,67
-0pattern2,1101,20,overlay,96,67
-0pattern3,-1,10,overlay,0,0
+0pattern0,1102,5,overlay,96,67
+0pattern1,1101,20,overlay,96,67
+0pattern2,-1,10,overlay,0,0
 }
 
 surface4
@@ -518,7 +518,7 @@ collision9,67,530,178,590,Foot
 
 0interval,random,4
 0pattern0,1102,15,overlay,96,67
-0pattern4,-1,15,overlay,0,0
+0pattern1,-1,15,overlay,0,0
 
 //@”¼ŠJ‚¯¨•Â‚¶
 10interval,never
