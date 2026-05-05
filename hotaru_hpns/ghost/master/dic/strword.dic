@@ -763,7 +763,7 @@ version {
 
 craftman { 'umeici' }
 craftmanw { '梅市' }
-homeurl { 'https://num.static.jp/netowaku/hotaru_hpns/' }
+homeurl { 'http://num.static.jp/netowaku/hotaru_hpns/' }
 
 
 // SSTPを使用できるアプリケーションから送信されるスクリプトに
